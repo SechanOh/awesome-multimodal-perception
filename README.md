@@ -21,12 +21,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **Faster R-CNN -> YOLOv3** | <kbd>two-stage detection</kbd> to <kbd>one-stage real-time detection</kbd> |
-| 2 | **YOLOv3 -> DETR** | <kbd>multi-scale prediction</kbd> to <kbd>object queries</kbd> and <kbd>Hungarian matching</kbd> |
-| 3 | **DETR -> Deformable DETR -> DINO** | <kbd>NMS-free detection</kbd> to <kbd>sparse multi-scale attention</kbd> and <kbd>denoising training</kbd> |
-| 4 | **GLIP -> Grounding DINO** | <kbd>phrase grounding</kbd> to <kbd>text-conditioned open-set detection</kbd> |
+| Papers | Shift |
+|---|---|
+| **Faster R-CNN → YOLOv3** | <kbd>two-stage detection</kbd> → <kbd>one-stage real-time detection</kbd> |
+| **YOLOv3 → DETR** | <kbd>multi-scale prediction</kbd> → <kbd>object queries</kbd>, <kbd>Hungarian matching</kbd> |
+| **DETR → Deformable DETR → DINO** | <kbd>NMS-free detection</kbd> → <kbd>sparse multi-scale attention</kbd>, <kbd>denoising training</kbd> |
+| **GLIP → Grounding DINO** | <kbd>phrase grounding</kbd> → <kbd>text-conditioned open-set detection</kbd> |
 
 ### Reading Order
 
@@ -66,11 +66,11 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **Mask R-CNN -> Mask2Former** | <kbd>mask prediction</kbd> to <kbd>universal segmentation</kbd> |
-| 2 | **Mask2Former -> Segment Anything** | <kbd>semantic segmentation</kbd>, <kbd>instance segmentation</kbd>, and <kbd>panoptic segmentation</kbd> to <kbd>promptable segmentation</kbd> |
-| 3 | **Segment Anything -> SAM 2** | <kbd>SA-1B</kbd> and <kbd>ambiguity-aware mask prediction</kbd> to <kbd>memory-based segmentation</kbd> and <kbd>video segmentation</kbd> |
+| Papers | Shift |
+|---|---|
+| **Mask R-CNN → Mask2Former** | <kbd>mask prediction</kbd> → <kbd>universal segmentation</kbd> |
+| **Mask2Former → Segment Anything** | <kbd>semantic segmentation</kbd>, <kbd>instance segmentation</kbd>, <kbd>panoptic segmentation</kbd> → <kbd>promptable segmentation</kbd> |
+| **Segment Anything → SAM 2** | <kbd>SA-1B</kbd>, <kbd>ambiguity-aware mask prediction</kbd> → <kbd>memory-based segmentation</kbd>, <kbd>video segmentation</kbd> |
 
 ### Reading Order
 
@@ -101,12 +101,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **Simple Online and Realtime Tracking -> Deep Association Metric** | <kbd>Kalman filtering</kbd> and <kbd>Hungarian matching</kbd> to <kbd>appearance embeddings</kbd> |
-| 2 | **Deep Association Metric -> Tracktor++ -> CenterTrack** | <kbd>robust association</kbd> to <kbd>detector regression</kbd> and <kbd>joint detection and tracking</kbd> |
-| 3 | **CenterTrack -> TrackFormer -> ByteTrack** | <kbd>object centers</kbd> to <kbd>transformer queries</kbd> and <kbd>low-confidence detection boxes</kbd> |
-| 4 | **ByteTrack -> SAM 2** | <kbd>data association</kbd> to <kbd>promptable video object tracking</kbd> with <kbd>segmentation memory</kbd> |
+| Papers | Shift |
+|---|---|
+| **Simple Online and Realtime Tracking → Deep Association Metric** | <kbd>Kalman filtering</kbd>, <kbd>Hungarian matching</kbd> → <kbd>appearance embeddings</kbd> |
+| **Deep Association Metric → Tracktor++ → CenterTrack** | <kbd>robust association</kbd> → <kbd>detector regression</kbd>, <kbd>joint detection and tracking</kbd> |
+| **CenterTrack → TrackFormer → ByteTrack** | <kbd>object centers</kbd> → <kbd>transformer queries</kbd>, <kbd>low-confidence detection boxes</kbd> |
+| **ByteTrack → SAM 2** | <kbd>data association</kbd> → <kbd>promptable video object tracking</kbd>, <kbd>segmentation memory</kbd> |
 
 ### Reading Order
 
@@ -146,12 +146,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **RAFT -> GMFlow** | <kbd>all-pairs correlation volume</kbd> and <kbd>iterative flow refinement</kbd> to <kbd>transformer-style global matching</kbd> |
-| 2 | **MiDaS -> Depth Anything -> Depth Anything V2** | <kbd>relative depth</kbd> and <kbd>multi-dataset training</kbd> to <kbd>large-scale unlabeled data</kbd> and <kbd>synthetic data</kbd> |
-| 3 | **DUSt3R -> VGGT** | <kbd>pointmap prediction</kbd> to <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, and <kbd>tracks</kbd> |
-| 4 | **VGGT -> DEFOM-Stereo** | <kbd>depth maps</kbd> and <kbd>point maps</kbd> to <kbd>monocular depth foundation priors</kbd> for <kbd>stereo matching</kbd> |
+| Papers | Shift |
+|---|---|
+| **RAFT → GMFlow** | <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd> → <kbd>transformer-style global matching</kbd> |
+| **MiDaS → Depth Anything → Depth Anything V2** | <kbd>relative depth</kbd>, <kbd>multi-dataset training</kbd> → <kbd>large-scale unlabeled data</kbd>, <kbd>synthetic data</kbd> |
+| **DUSt3R → VGGT** | <kbd>pointmap prediction</kbd> → <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd> |
+| **VGGT → DEFOM-Stereo** | <kbd>depth maps</kbd>, <kbd>point maps</kbd> → <kbd>monocular depth foundation priors</kbd> for <kbd>stereo matching</kbd> |
 
 ### Reading Order
 
@@ -197,12 +197,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **ORB-SLAM3 -> DROID-SLAM** | <kbd>feature-based SLAM</kbd> and <kbd>loop closure</kbd> to <kbd>learned recurrent updates</kbd> and <kbd>dense bundle adjustment</kbd> |
-| 2 | **DROID-SLAM -> NICE-SLAM -> Co-SLAM** | <kbd>dense bundle adjustment</kbd> to <kbd>neural implicit dense mapping</kbd> and <kbd>real-time neural SLAM</kbd> |
-| 3 | **Scene as Occupancy -> OccTransformer** | <kbd>camera-only 3D occupancy prediction</kbd> to <kbd>BEV-style perception</kbd> and <kbd>occupancy</kbd> |
-| 4 | **OccTransformer -> LiDAR-based 4D Occupancy Completion and Forecasting** | <kbd>occupancy</kbd> to <kbd>occupancy completion</kbd> and <kbd>future occupancy forecasting</kbd> |
+| Papers | Shift |
+|---|---|
+| **ORB-SLAM3 → DROID-SLAM** | <kbd>feature-based SLAM</kbd>, <kbd>loop closure</kbd> → <kbd>learned recurrent updates</kbd>, <kbd>dense bundle adjustment</kbd> |
+| **DROID-SLAM → NICE-SLAM → Co-SLAM** | <kbd>dense bundle adjustment</kbd> → <kbd>neural implicit dense mapping</kbd>, <kbd>real-time neural SLAM</kbd> |
+| **Scene as Occupancy → OccTransformer** | <kbd>camera-only 3D occupancy prediction</kbd> → <kbd>BEV-style perception</kbd>, <kbd>occupancy</kbd> |
+| **OccTransformer → LiDAR-based 4D Occupancy Completion and Forecasting** | <kbd>occupancy</kbd> → <kbd>occupancy completion</kbd>, <kbd>future occupancy forecasting</kbd> |
 
 ### Reading Order
 
@@ -245,12 +245,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **Structure-from-Motion Revisited -> NeRF** | <kbd>classical SfM pipeline</kbd> and <kbd>COLMAP</kbd> to <kbd>volumetric rendering</kbd> |
-| 2 | **NeRF -> Instant-NGP** | <kbd>positional encoding</kbd> and <kbd>view synthesis</kbd> to <kbd>hash grid encoding</kbd> and <kbd>fast neural scene fitting</kbd> |
-| 3 | **Instant-NGP -> 3D Gaussian Splatting** | <kbd>fast neural scene fitting</kbd> to <kbd>explicit anisotropic Gaussians</kbd> and <kbd>differentiable rasterization</kbd> |
-| 4 | **3D Gaussian Splatting -> pixelSplat -> DUSt3R -> VGGT** | <kbd>feed-forward Gaussian splat prediction</kbd> to <kbd>pointmap prediction</kbd> and <kbd>generalist 3D geometry</kbd> |
+| Papers | Shift |
+|---|---|
+| **Structure-from-Motion Revisited → NeRF** | <kbd>classical SfM pipeline</kbd>, <kbd>COLMAP</kbd> → <kbd>volumetric rendering</kbd> |
+| **NeRF → Instant-NGP** | <kbd>positional encoding</kbd>, <kbd>view synthesis</kbd> → <kbd>hash grid encoding</kbd>, <kbd>fast neural scene fitting</kbd> |
+| **Instant-NGP → 3D Gaussian Splatting** | <kbd>fast neural scene fitting</kbd> → <kbd>explicit anisotropic Gaussians</kbd>, <kbd>differentiable rasterization</kbd> |
+| **3D Gaussian Splatting → pixelSplat → DUSt3R → VGGT** | <kbd>feed-forward Gaussian splat prediction</kbd> → <kbd>pointmap prediction</kbd>, <kbd>generalist 3D geometry</kbd> |
 
 ### Reading Order
 
@@ -293,12 +293,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **ViT -> CLIP** | <kbd>ViT patch tokens</kbd> and <kbd>scale</kbd> to <kbd>image-text contrastive learning</kbd> |
-| 2 | **CLIP -> MAE -> DINOv2** | <kbd>zero-shot transfer</kbd> to <kbd>masked image modeling</kbd> and <kbd>self-supervised features</kbd> |
-| 3 | **DINOv2 -> SigLIP -> SAM** | <kbd>dense transfer</kbd> and <kbd>scalable image-text loss design</kbd> to <kbd>promptable segmentation</kbd> |
-| 4 | **SAM -> SAM 2 -> VideoPrism -> InternVL** | <kbd>image-video segmentation</kbd> to <kbd>video foundation representation learning</kbd> and <kbd>VLM alignment</kbd> |
+| Papers | Shift |
+|---|---|
+| **ViT → CLIP** | <kbd>ViT patch tokens</kbd>, <kbd>scale</kbd> → <kbd>image-text contrastive learning</kbd> |
+| **CLIP → MAE → DINOv2** | <kbd>zero-shot transfer</kbd> → <kbd>masked image modeling</kbd>, <kbd>self-supervised features</kbd> |
+| **DINOv2 → SigLIP → SAM** | <kbd>dense transfer</kbd>, <kbd>scalable image-text loss design</kbd> → <kbd>promptable segmentation</kbd> |
+| **SAM → SAM 2 → VideoPrism → InternVL** | <kbd>image-video segmentation</kbd> → <kbd>video foundation representation learning</kbd>, <kbd>VLM alignment</kbd> |
 
 ### Reading Order
 
@@ -350,12 +350,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **End-to-end Learning of Driving Models -> UniAD** | <kbd>large-scale imitation learning</kbd> to <kbd>perception</kbd>, <kbd>prediction</kbd>, <kbd>mapping</kbd>, and <kbd>planning</kbd> |
-| 2 | **UniAD -> Diffusion Policy** | <kbd>planning</kbd> to <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, and <kbd>multimodal action distributions</kbd> |
-| 3 | **Diffusion Policy -> RT-2 -> OpenVLA** | <kbd>robot actions</kbd> as <kbd>language-model tokens</kbd> to <kbd>open VLA training</kbd> |
-| 4 | **OpenVLA -> OpenDriveVLA -> ORION** | <kbd>VLA framing</kbd> to <kbd>autonomous driving</kbd> and <kbd>language-instructed driving action generation</kbd> |
+| Papers | Shift |
+|---|---|
+| **End-to-end Learning of Driving Models → UniAD** | <kbd>large-scale imitation learning</kbd> → <kbd>perception</kbd>, <kbd>prediction</kbd>, <kbd>mapping</kbd>, <kbd>planning</kbd> |
+| **UniAD → Diffusion Policy** | <kbd>planning</kbd> → <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, <kbd>multimodal action distributions</kbd> |
+| **Diffusion Policy → RT-2 → OpenVLA** | <kbd>robot actions</kbd> as <kbd>language-model tokens</kbd> → <kbd>open VLA training</kbd> |
+| **OpenVLA → OpenDriveVLA → ORION** | <kbd>VLA framing</kbd> → <kbd>autonomous driving</kbd>, <kbd>language-instructed driving action generation</kbd> |
 
 ### Reading Order
 
@@ -398,12 +398,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **DDPM -> Latent Diffusion** | <kbd>diffusion objective</kbd> and <kbd>denoising process</kbd> to <kbd>latent diffusion</kbd> |
-| 2 | **Latent Diffusion -> Video Diffusion -> Stable Video Diffusion** | <kbd>cross-attention conditioning</kbd> to <kbd>video diffusion</kbd>, <kbd>image-to-video</kbd>, and <kbd>text-to-video scaling</kbd> |
-| 3 | **DreamerV3 -> Genie** | <kbd>latent imagination</kbd> and <kbd>control</kbd> to <kbd>action-controllable environments</kbd> |
-| 4 | **Genie -> GAIA-1 -> GAIA-2 -> DrivingWorld** | <kbd>generative driving simulation</kbd> to <kbd>controllable multi-view generation</kbd> and <kbd>video-token world modeling</kbd> |
+| Papers | Shift |
+|---|---|
+| **DDPM → Latent Diffusion** | <kbd>diffusion objective</kbd>, <kbd>denoising process</kbd> → <kbd>latent diffusion</kbd> |
+| **Latent Diffusion → Video Diffusion → Stable Video Diffusion** | <kbd>cross-attention conditioning</kbd> → <kbd>video diffusion</kbd>, <kbd>image-to-video</kbd>, <kbd>text-to-video scaling</kbd> |
+| **DreamerV3 → Genie** | <kbd>latent imagination</kbd>, <kbd>control</kbd> → <kbd>action-controllable environments</kbd> |
+| **Genie → GAIA-1 → GAIA-2 → DrivingWorld** | <kbd>generative driving simulation</kbd> → <kbd>controllable multi-view generation</kbd>, <kbd>video-token world modeling</kbd> |
 
 ### Reading Order
 
@@ -455,12 +455,12 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| Stage | Papers | Shift |
-|---:|---|---|
-| 1 | **Explaining and Harnessing Adversarial Examples -> PGD adversarial training** | <kbd>adversarial-example setup</kbd> to <kbd>robust optimization</kbd> |
-| 2 | **Domain-Adversarial Training -> Deep Ensembles -> Bayesian uncertainty** | <kbd>domain-invariant representations</kbd> to <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, and <kbd>epistemic uncertainty</kbd> |
-| 3 | **Bayesian uncertainty -> Tent** | <kbd>aleatoric uncertainty</kbd> and <kbd>dense prediction</kbd> to <kbd>entropy minimization</kbd> and <kbd>batch-norm adaptation</kbd> |
-| 4 | **Tent -> RobustBench -> WILDS** | <kbd>test time</kbd> adaptation to <kbd>standardized robustness evaluation</kbd> and <kbd>realistic domain shift</kbd> |
+| Papers | Shift |
+|---|---|
+| **Explaining and Harnessing Adversarial Examples → PGD adversarial training** | <kbd>adversarial-example setup</kbd> → <kbd>robust optimization</kbd> |
+| **Domain-Adversarial Training → Deep Ensembles → Bayesian uncertainty** | <kbd>domain-invariant representations</kbd> → <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, <kbd>epistemic uncertainty</kbd> |
+| **Bayesian uncertainty → Tent** | <kbd>aleatoric uncertainty</kbd>, <kbd>dense prediction</kbd> → <kbd>entropy minimization</kbd>, <kbd>batch-norm adaptation</kbd> |
+| **Tent → RobustBench → WILDS** | <kbd>test time</kbd> adaptation → <kbd>standardized robustness evaluation</kbd>, <kbd>realistic domain shift</kbd> |
 
 ### Reading Order
 
