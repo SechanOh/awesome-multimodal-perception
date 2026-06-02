@@ -16,17 +16,12 @@ Last updated: 2026-06-02
 - [8. End-to-End Autonomous Driving and Robotics Models](#8-end-to-end-autonomous-driving-and-robotics-models)
 - [9. Generative Vision and World Models](#9-generative-vision-and-world-models)
 - [10. Robustness, Uncertainty, and Domain Adaptation](#10-robustness-uncertainty-and-domain-adaptation)
-- [Four-Week Skimming Plan](#four-week-skimming-plan)
-- [Minimal 20-Paper Route](#minimal-20-paper-route)
 
 ## 1. Object Detection
 
-### Background Concepts
+### Field Evolution
 
-- CNN backbones, feature pyramids, anchors, non-maximum suppression
-- Two-stage vs one-stage detection
-- Transformer object queries and bipartite matching
-- Open-vocabulary detection and language grounding
+Object detection moved from hand-crafted features and sliding windows to CNN-based two-stage detectors, then to one-stage real-time detectors, transformer-based end-to-end detection, and finally language-grounded open-vocabulary detection.
 
 ### Reading Order
 
@@ -64,13 +59,9 @@ Last updated: 2026-06-02
 
 ## 2. Segmentation
 
-### Background Concepts
+### Field Evolution
 
-- Semantic, instance, and panoptic segmentation
-- Mask heads and RoIAlign
-- Mask classification
-- Promptable segmentation
-- Video object segmentation
+Segmentation began with class-level dense prediction, expanded into instance and panoptic segmentation, then shifted toward transformer mask classification and promptable foundation models that work across images and videos.
 
 ### Reading Order
 
@@ -99,13 +90,9 @@ Last updated: 2026-06-02
 
 ## 3. Object Tracking
 
-### Background Concepts
+### Field Evolution
 
-- Single-object tracking vs multi-object tracking
-- Tracking-by-detection
-- Data association
-- Motion models and appearance embeddings
-- Video object segmentation as mask tracking
+Object tracking evolved from motion-model-based association and tracking-by-detection pipelines to appearance-aware association, joint detection-tracking models, transformer query tracking, and segmentation-memory-based video tracking.
 
 ### Reading Order
 
@@ -143,14 +130,9 @@ Last updated: 2026-06-02
 
 ## 4. Depth, Geometry, and Optical Flow
 
-### Background Concepts
+### Field Evolution
 
-- Camera projection, epipolar geometry, stereo matching
-- Dense correspondence and cost volumes
-- Optical flow vs scene flow
-- Monocular relative depth vs metric depth
-- Self-supervised depth from video
-- Multi-view geometry and feed-forward geometry prediction
+Geometry research started from projective geometry, stereo, and dense correspondence, then moved into learned optical flow and monocular depth, large-scale depth foundation models, and feed-forward models that predict depth, cameras, point maps, and tracks together.
 
 ### Reading Order
 
@@ -194,14 +176,9 @@ Last updated: 2026-06-02
 
 ## 5. SLAM, Odometry, and Occupancy
 
-### Background Concepts
+### Field Evolution
 
-- Visual odometry vs SLAM
-- Feature tracking, loop closure, place recognition
-- Bundle adjustment and pose graph optimization
-- Visual-inertial odometry
-- Dense mapping and neural implicit mapping
-- BEV and 3D occupancy for autonomous driving
+SLAM and odometry progressed from feature-based tracking, bundle adjustment, and loop closure to learned dense optimization, neural implicit mapping, and occupancy-centric scene representations for autonomous driving.
 
 ### Reading Order
 
@@ -242,15 +219,9 @@ Last updated: 2026-06-02
 
 ## 6. 3D Reconstruction
 
-### Background Concepts
+### Field Evolution
 
-- Structure from Motion
-- Multi-view stereo
-- Bundle adjustment
-- Neural radiance fields
-- Differentiable rendering
-- Explicit vs implicit 3D representations
-- Feed-forward reconstruction
+3D reconstruction grew out of Structure from Motion and multi-view stereo, then shifted to neural radiance fields, faster neural encodings, explicit Gaussian representations, and feed-forward reconstruction from sparse image inputs.
 
 ### Reading Order
 
@@ -291,15 +262,9 @@ Last updated: 2026-06-02
 
 ## 7. Foundation Models
 
-### Background Concepts
+### Field Evolution
 
-- Transformer encoder architecture
-- Contrastive image-text pretraining
-- Masked image modeling
-- Self-supervised visual representation learning
-- Promptable perception
-- Vision-language model alignment
-- Video foundation encoders
+Vision foundation models moved from supervised CNN backbones to ViT scaling, contrastive image-text pretraining, masked image modeling, self-supervised dense features, promptable perception, and video or vision-language generalist encoders.
 
 ### Reading Order
 
@@ -349,15 +314,9 @@ Last updated: 2026-06-02
 
 ## 8. End-to-End Autonomous Driving and Robotics Models
 
-### Background Concepts
+### Field Evolution
 
-- Imitation learning and behavior cloning
-- Planning vs end-to-end action prediction
-- BEV perception and occupancy
-- Visuomotor control
-- Diffusion policies
-- Vision-language-action models
-- Robot embodiment and action tokenization
+End-to-end driving and robotics started with behavior cloning and modular perception-control stacks, then moved toward planning-oriented driving networks, diffusion-based visuomotor policies, and vision-language-action models that treat actions as model outputs.
 
 ### Reading Order
 
@@ -398,15 +357,9 @@ Last updated: 2026-06-02
 
 ## 9. Generative Vision and World Models
 
-### Background Concepts
+### Field Evolution
 
-- Score matching and denoising diffusion
-- Latent diffusion
-- Video generation and temporal consistency
-- Action-conditioned generation
-- Latent world models
-- Interactive environments
-- Autonomous-driving simulation
+Generative vision advanced from image diffusion to latent diffusion and video generation, then expanded into action-conditioned interactive environments, latent world models for control, and controllable driving simulators.
 
 ### Reading Order
 
@@ -456,15 +409,9 @@ Last updated: 2026-06-02
 
 ## 10. Robustness, Uncertainty, and Domain Adaptation
 
-### Background Concepts
+### Field Evolution
 
-- Adversarial examples and threat models
-- PGD adversarial training
-- Calibration and predictive uncertainty
-- Epistemic vs aleatoric uncertainty
-- Domain adaptation and domain generalization
-- Test-time adaptation
-- Distribution-shift benchmarks
+Robustness research began with adversarial examples and robust optimization, expanded into uncertainty estimation and calibration, then developed domain adaptation, test-time adaptation, and standardized benchmarks for real-world distribution shift.
 
 ### Reading Order
 
@@ -505,62 +452,3 @@ Last updated: 2026-06-02
 
 - [Test-time adaptation paper explanation search](https://www.youtube.com/results?search_query=Tent+fully+test+time+adaptation+paper+explained)  
   Use after domain adaptation background.
-
-## Four-Week Skimming Plan
-
-### Week 1: Foundation Models, Detection, Segmentation, and Object Tracking
-
-- Day 1: ViT, CLIP, MAE
-- Day 2: DINOv2, SAM, SAM 2
-- Day 3: Faster R-CNN, YOLOv3, DETR
-- Day 4: Deformable DETR, DINO, Grounding DINO
-- Day 5: Mask R-CNN, Mask2Former, SAM, ByteTrack
-
-### Week 2: Geometry and Reconstruction
-
-- Day 1: RAFT, GMFlow
-- Day 2: MiDaS, Depth Anything, Depth Anything V2
-- Day 3: COLMAP, NeRF, Instant-NGP
-- Day 4: 3D Gaussian Splatting, pixelSplat
-- Day 5: DUSt3R, VGGT, DEFOM-Stereo
-
-### Week 3: SLAM, Occupancy, Driving, and Robotics
-
-- Day 1: ORB-SLAM3, DROID-SLAM
-- Day 2: NICE-SLAM, Co-SLAM
-- Day 3: Scene as Occupancy, OccTransformer, 4D Occupancy Completion
-- Day 4: UniAD, Diffusion Policy, RT-2
-- Day 5: OpenVLA, OpenDriveVLA, ORION
-
-### Week 4: Generative Vision, World Models, and Robustness
-
-- Day 1: DDPM, Latent Diffusion, Video Diffusion
-- Day 2: Stable Video Diffusion, DreamerV3, Genie
-- Day 3: GAIA-1, GAIA-2, DrivingWorld
-- Day 4: FGSM, PGD adversarial training, DANN
-- Day 5: Deep Ensembles, Bayesian uncertainty, Tent, RobustBench, WILDS
-
-## Minimal 20-Paper Route
-
-If time is limited, read only these first:
-
-1. ViT
-2. CLIP
-3. MAE
-4. DINOv2
-5. SAM
-6. SAM 2
-7. DETR
-8. Grounding DINO
-9. Mask2Former
-10. RAFT
-11. Depth Anything V2
-12. DUSt3R
-13. VGGT
-14. ORB-SLAM3
-15. DROID-SLAM
-16. 3D Gaussian Splatting
-17. UniAD
-18. RT-2
-19. OpenVLA
-20. Tent
