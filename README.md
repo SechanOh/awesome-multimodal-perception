@@ -30,7 +30,6 @@ Last updated: 2026-06-02
 
 | **Papers** | **Shift** |
 |---|---|
-| R-CNN family → Faster R-CNN | <kbd>proposal + classifier pipeline</kbd> → <kbd>end-to-end region proposal networks</kbd> |
 | Faster R-CNN → YOLOv3 | <kbd>two-stage accurate detection</kbd> → <kbd>one-stage real-time detection</kbd> |
 | YOLOv3 → DETR | <kbd>dense anchor/grid prediction</kbd> → <kbd>set prediction with object queries</kbd> |
 | DETR → Deformable DETR → DINO | <kbd>slow global attention DETR</kbd> → <kbd>sparse multi-scale attention</kbd>, <kbd>strong DETR training recipes</kbd> |
@@ -119,7 +118,7 @@ Last updated: 2026-06-02
 | DeepSORT → Tracktor++ → CenterTrack | <kbd>tracking after detection</kbd> → <kbd>detector-driven tracking</kbd>, <kbd>joint detection and tracking</kbd> |
 | CenterTrack → TrackFormer | <kbd>object centers and offsets</kbd> → <kbd>persistent transformer tracking queries</kbd> |
 | TrackFormer → ByteTrack | <kbd>query-based association</kbd> → <kbd>recovering tracks with low-confidence detections</kbd> |
-| Box-level MOT → SAM 2 | <kbd>box tracks</kbd> → <kbd>promptable video object masks and memory</kbd> |
+| ByteTrack → SAM 2 | <kbd>box-level association</kbd> → <kbd>promptable video object masks and memory</kbd> |
 
 ### Reading Order
 
@@ -201,7 +200,7 @@ Last updated: 2026-06-02
 | **Papers** | **Shift** |
 |---|---|
 | Lucas-Kanade / Horn-Schunck | <kbd>local image alignment</kbd> ↔ <kbd>global smoothness-regularized flow</kbd> |
-| Classical flow → FlowNet | <kbd>hand-designed optimization</kbd> → <kbd>end-to-end learned optical flow</kbd> |
+| Lucas-Kanade / Horn-Schunck → FlowNet | <kbd>hand-designed optimization</kbd> → <kbd>end-to-end learned optical flow</kbd> |
 | FlowNet → PWC-Net | <kbd>direct CNN regression</kbd> → <kbd>pyramid, warping, and cost volume</kbd> |
 | PWC-Net → RAFT → GMFlow | <kbd>coarse-to-fine matching</kbd> → <kbd>all-pairs correlation</kbd> → <kbd>global matching</kbd> |
 
@@ -240,7 +239,7 @@ Last updated: 2026-06-02
 | **Papers / Topics** | **Shift** |
 |---|---|
 | Multiple View Geometry → COLMAP | <kbd>camera models and epipolar geometry</kbd> → <kbd>practical SfM pipeline</kbd> |
-| Local features → SuperGlue / LoFTR | <kbd>hand-crafted matching</kbd> → <kbd>learned feature matching and detector-free correspondence</kbd> |
+| SIFT → SuperGlue → LoFTR | <kbd>hand-crafted local features</kbd> → <kbd>learned matching</kbd> → <kbd>detector-free correspondence</kbd> |
 | COLMAP-style reconstruction → DUSt3R | <kbd>matching + camera optimization</kbd> → <kbd>feed-forward pointmap prediction</kbd> |
 | DUSt3R → VGGT | <kbd>pairwise geometry foundation model</kbd> → <kbd>generalist prediction of cameras, depth, tracks, and point maps</kbd> |
 
@@ -249,19 +248,22 @@ Last updated: 2026-06-02
 1. [Multiple View Geometry in Computer Vision](https://www.robots.ox.ac.uk/~vgg/hzbook/), Hartley and Zisserman  
    Skim for: <kbd>camera models</kbd>, <kbd>epipolar geometry</kbd>, <kbd>fundamental matrix</kbd>, <kbd>triangulation</kbd>
 
-2. [Structure-from-Motion Revisited](https://demuc.de/papers/schoenberger2016sfm.pdf), CVPR 2016  
+2. [Distinctive Image Features from Scale-Invariant Keypoints](https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf), IJCV 2004  
+   Skim for: <kbd>SIFT</kbd>, <kbd>local features</kbd>, <kbd>keypoint descriptors</kbd>, <kbd>feature matching</kbd>
+
+3. [Structure-from-Motion Revisited](https://demuc.de/papers/schoenberger2016sfm.pdf), CVPR 2016  
    Skim for: <kbd>SfM pipeline</kbd>, <kbd>COLMAP</kbd>, <kbd>bundle adjustment</kbd>
 
-3. [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://arxiv.org/abs/1911.11763), CVPR 2020  
+4. [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://arxiv.org/abs/1911.11763), CVPR 2020  
    Skim for: <kbd>local features</kbd>, <kbd>matching</kbd>, <kbd>attention-based correspondence</kbd>
 
-4. [LoFTR: Detector-Free Local Feature Matching with Transformers](https://arxiv.org/abs/2104.00680), CVPR 2021  
+5. [LoFTR: Detector-Free Local Feature Matching with Transformers](https://arxiv.org/abs/2104.00680), CVPR 2021  
    Skim for: <kbd>detector-free matching</kbd>, <kbd>coarse-to-fine correspondence</kbd>, <kbd>transformer matching</kbd>
 
-5. [DUSt3R: Geometric 3D Vision Made Easy](https://arxiv.org/abs/2312.14132), CVPR 2024  
+6. [DUSt3R: Geometric 3D Vision Made Easy](https://arxiv.org/abs/2312.14132), CVPR 2024  
    Skim for: <kbd>pointmap prediction</kbd>, <kbd>unconstrained image pairs</kbd>, <kbd>reconstruction without calibrated cameras</kbd>
 
-6. [VGGT: Visual Geometry Grounded Transformer](https://arxiv.org/abs/2503.11651), CVPR 2025  
+7. [VGGT: Visual Geometry Grounded Transformer](https://arxiv.org/abs/2503.11651), CVPR 2025  
    Skim for: <kbd>feed-forward prediction</kbd>, <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd>
 
 ### YouTube Skim Resources
@@ -411,23 +413,23 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Topics / Papers** | **Shift** |
+| **Papers / Readings** | **Shift** |
 |---|---|
-| Classical motion planning → Trajectory optimization | <kbd>graph/search and sampling</kbd> → <kbd>continuous optimization under constraints</kbd> |
-| Trajectory optimization → MPC | <kbd>offline trajectory generation</kbd> → <kbd>receding-horizon feedback control</kbd> |
-| Behavior cloning → DAgger / ChauffeurNet | <kbd>open-loop imitation</kbd> → <kbd>distribution-shift-aware and closed-loop behavior learning</kbd> |
-| Modular planning → Learning-based planning | <kbd>hand-engineered decision stacks</kbd> → <kbd>learned cost, policy, and trajectory generation</kbd> |
+| Planning Algorithms → Motion Planning and Control Survey | <kbd>general motion planning foundations</kbd> → <kbd>self-driving planning and control stack</kbd> |
+| Motion Planning and Control Survey → MPC | <kbd>stack-level planning overview</kbd> → <kbd>receding-horizon feedback control under constraints</kbd> |
+| DAgger → ChauffeurNet | <kbd>distribution-shift-aware imitation</kbd> → <kbd>closed-loop driving behavior learning</kbd> |
+| ChauffeurNet → GameFormer | <kbd>imitation-based behavior generation</kbd> → <kbd>interactive prediction and planning</kbd> |
 
 ### Reading Order
 
 1. [Planning Algorithms](http://lavalle.pl/planning/), Steven M. LaValle  
    Skim for: <kbd>configuration space</kbd>, <kbd>sampling-based planning</kbd>, <kbd>motion planning</kbd>
 
-2. [Model Predictive Control: Theory, Computation, and Design](https://sites.engineering.ucsb.edu/~jbraw/mpc/), Rawlings, Mayne, and Diehl  
-   Skim for: <kbd>MPC</kbd>, <kbd>constraints</kbd>, <kbd>receding horizon</kbd>
-
-3. [A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles](https://arxiv.org/abs/1604.07446), IEEE T-IV 2016  
+2. [A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles](https://arxiv.org/abs/1604.07446), IEEE T-IV 2016  
    Skim for: <kbd>behavior planning</kbd>, <kbd>motion planning</kbd>, <kbd>control stack</kbd>
+
+3. [Model Predictive Control: Theory, Computation, and Design](https://sites.engineering.ucsb.edu/~jbraw/mpc/), Rawlings, Mayne, and Diehl  
+   Skim for: <kbd>MPC</kbd>, <kbd>constraints</kbd>, <kbd>receding horizon</kbd>
 
 4. [A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning](https://arxiv.org/abs/1011.0686), AISTATS 2011  
    Skim for: <kbd>DAgger</kbd>, <kbd>covariate shift</kbd>, <kbd>interactive imitation learning</kbd>
@@ -453,37 +455,41 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers / Topics** | **Shift** |
+| **Papers / Readings** | **Shift** |
 |---|---|
-| Learning from demonstration → DAgger | <kbd>offline behavior cloning</kbd> → <kbd>interactive correction and distribution-shift reduction</kbd> |
-| Deep visuomotor policies → RT-1 | <kbd>task-specific policies</kbd> → <kbd>large-scale language-conditioned robot policies</kbd> |
-| Decision Transformer / Diffusion Policy | <kbd>RL-style value/policy learning</kbd> → <kbd>sequence modeling and generative action modeling</kbd> |
-| RT-1 → RT-2 → OpenVLA | <kbd>robot-only policy learning</kbd> → <kbd>vision-language-action models</kbd>, <kbd>open robot foundation models</kbd> |
+| Learning from Demonstration Survey → DAgger | <kbd>offline demonstration learning</kbd> → <kbd>interactive correction and distribution-shift reduction</kbd> |
+| DAgger → Deep Visuomotor Policies | <kbd>interactive imitation learning</kbd> → <kbd>end-to-end visual policy learning</kbd> |
+| Deep Visuomotor Policies → RT-1 | <kbd>task-specific policies</kbd> → <kbd>large-scale language-conditioned robot policies</kbd> |
+| Decision Transformer → Diffusion Policy | <kbd>trajectory sequence modeling</kbd> → <kbd>generative action modeling</kbd> |
+| RT-1 → RT-2 → Open X-Embodiment → OpenVLA | <kbd>robot transformer policies</kbd> → <kbd>VLA transfer</kbd>, <kbd>cross-embodiment data</kbd>, <kbd>open VLA models</kbd> |
 
 ### Reading Order
 
 1. [A Survey of Robot Learning from Demonstration](https://www.sciencedirect.com/science/article/pii/S0921889008001772), Robotics and Autonomous Systems 2009  
    Skim for: <kbd>learning from demonstration</kbd>, <kbd>imitation learning</kbd>, <kbd>policy learning</kbd>
 
-2. [End-to-End Training of Deep Visuomotor Policies](https://arxiv.org/abs/1504.00702), JMLR 2016  
+2. [A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning](https://arxiv.org/abs/1011.0686), AISTATS 2011  
+   Skim for: <kbd>DAgger</kbd>, <kbd>covariate shift</kbd>, <kbd>interactive imitation learning</kbd>
+
+3. [End-to-End Training of Deep Visuomotor Policies](https://arxiv.org/abs/1504.00702), JMLR 2016  
    Skim for: <kbd>visuomotor policies</kbd>, <kbd>end-to-end robot learning</kbd>
 
-3. [Decision Transformer: Reinforcement Learning via Sequence Modeling](https://arxiv.org/abs/2106.01345), NeurIPS 2021  
+4. [Decision Transformer: Reinforcement Learning via Sequence Modeling](https://arxiv.org/abs/2106.01345), NeurIPS 2021  
    Skim for: <kbd>offline RL</kbd>, <kbd>trajectory sequence modeling</kbd>, <kbd>return conditioning</kbd>
 
-4. [RT-1: Robotics Transformer for Real-World Control at Scale](https://arxiv.org/abs/2212.06817), RSS 2023  
+5. [RT-1: Robotics Transformer for Real-World Control at Scale](https://arxiv.org/abs/2212.06817), RSS 2023  
    Skim for: <kbd>large-scale robot data</kbd>, <kbd>robotics transformer</kbd>, <kbd>language-conditioned control</kbd>
 
-5. [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion](https://arxiv.org/abs/2303.04137), RSS 2023 / IJRR 2024  
+6. [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion](https://arxiv.org/abs/2303.04137), RSS 2023 / IJRR 2024  
    Skim for: <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, <kbd>multimodal action distributions</kbd>
 
-6. [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/abs/2307.15818), CoRL 2023  
+7. [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/abs/2307.15818), CoRL 2023  
    Skim for: <kbd>VLA model</kbd>, <kbd>robot actions as tokens</kbd>, <kbd>web knowledge transfer</kbd>
 
-7. [Open X-Embodiment: Robotic Learning Datasets and RT-X Models](https://arxiv.org/abs/2310.08864), 2023  
+8. [Open X-Embodiment: Robotic Learning Datasets and RT-X Models](https://arxiv.org/abs/2310.08864), 2023  
    Skim for: <kbd>cross-embodiment learning</kbd>, <kbd>robot data mixture</kbd>, <kbd>RT-X</kbd>
 
-8. [OpenVLA: An Open-Source Vision-Language-Action Model](https://arxiv.org/abs/2406.09246), CoRL 2024  
+9. [OpenVLA: An Open-Source Vision-Language-Action Model](https://arxiv.org/abs/2406.09246), CoRL 2024  
    Skim for: <kbd>open VLA training</kbd>, <kbd>parameter-efficient adaptation</kbd>, <kbd>robot action generation</kbd>
 
 ### YouTube Skim Resources
@@ -506,8 +512,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 | ViT → CLIP | <kbd>transformer vision backbone</kbd> → <kbd>image-text contrastive learning</kbd> |
 | CLIP → MAE → DINOv2 | <kbd>zero-shot image-text transfer</kbd> → <kbd>masked image modeling</kbd>, <kbd>self-supervised dense visual features</kbd> |
 | DINOv2 → SAM / SAM 2 | <kbd>foundation visual features</kbd> → <kbd>promptable image and video segmentation</kbd> |
-| CLIP-style VLMs → VideoPrism / InternVL | <kbd>image-language alignment</kbd> → <kbd>video and multimodal foundation encoders</kbd> |
-| Vision/VLM foundations → VLA models | <kbd>perception representation</kbd> → <kbd>embodied action generation</kbd> |
+| CLIP / SigLIP → VideoPrism / InternVL | <kbd>image-language alignment</kbd> → <kbd>video and multimodal foundation encoders</kbd> |
 
 ### Reading Order
 
@@ -653,13 +658,12 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers / Topics** | **Shift** |
+| **Papers / Readings** | **Shift** |
 |---|---|
-| Adversarial examples → PGD adversarial training | <kbd>attack examples</kbd> → <kbd>robust optimization</kbd> |
-| Deep ensembles / Bayesian uncertainty → Calibration | <kbd>uncertainty estimation</kbd> → <kbd>calibrated confidence for safety-critical prediction</kbd> |
-| Domain adaptation → Test-time adaptation | <kbd>domain-invariant training</kbd> → <kbd>online adaptation at deployment time</kbd> |
-| WILDS / real-world shifts | <kbd>clean i.i.d. benchmarks</kbd> → <kbd>distribution shift and robust evaluation</kbd> |
-| Perception uncertainty → Safety-aware systems | <kbd>model confidence</kbd> → <kbd>OOD awareness, risk-sensitive planning, and failure detection</kbd> |
+| Explaining and Harnessing Adversarial Examples → PGD Adversarial Training | <kbd>attack examples</kbd> → <kbd>robust optimization</kbd> |
+| Deep Ensembles / Bayesian Uncertainty → Calibration | <kbd>uncertainty estimation</kbd> → <kbd>calibrated confidence for safety-critical prediction</kbd> |
+| Domain-Adversarial Training → Tent | <kbd>domain-invariant training</kbd> → <kbd>online adaptation at deployment time</kbd> |
+| Tent → WILDS | <kbd>test-time adaptation methods</kbd> → <kbd>real-world distribution-shift evaluation</kbd> |
 
 ### Reading Order
 
