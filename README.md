@@ -21,7 +21,10 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-Object detection moved from <kbd>hand-crafted features</kbd> and <kbd>sliding windows</kbd> to <kbd>CNN-based two-stage detectors</kbd>, then to <kbd>one-stage real-time detectors</kbd>, <kbd>transformer-based end-to-end detection</kbd>, and finally <kbd>language-grounded open-vocabulary detection</kbd>.
+- Faster R-CNN -> YOLOv3: <kbd>two-stage detection</kbd> to <kbd>one-stage real-time detection</kbd>
+- YOLOv3 -> DETR: <kbd>multi-scale prediction</kbd> to <kbd>object queries</kbd> and <kbd>Hungarian matching</kbd>
+- DETR -> Deformable DETR -> DINO: <kbd>NMS-free detection</kbd> to <kbd>sparse multi-scale attention</kbd> and <kbd>denoising training</kbd>
+- GLIP -> Grounding DINO: <kbd>phrase grounding</kbd> to <kbd>text-conditioned open-set detection</kbd>
 
 ### Reading Order
 
@@ -61,7 +64,9 @@ Object detection moved from <kbd>hand-crafted features</kbd> and <kbd>sliding wi
 
 ### Field Evolution
 
-Segmentation began with <kbd>class-level dense prediction</kbd>, expanded into <kbd>instance segmentation</kbd> and <kbd>panoptic segmentation</kbd>, then shifted toward <kbd>transformer mask classification</kbd> and <kbd>promptable foundation models</kbd> for images and videos.
+- Mask R-CNN -> Mask2Former: <kbd>mask prediction</kbd> to <kbd>universal segmentation</kbd>
+- Mask2Former -> Segment Anything: <kbd>semantic segmentation</kbd>, <kbd>instance segmentation</kbd>, and <kbd>panoptic segmentation</kbd> to <kbd>promptable segmentation</kbd>
+- Segment Anything -> SAM 2: <kbd>SA-1B</kbd> and <kbd>ambiguity-aware mask prediction</kbd> to <kbd>memory-based segmentation</kbd> and <kbd>video segmentation</kbd>
 
 ### Reading Order
 
@@ -92,7 +97,10 @@ Segmentation began with <kbd>class-level dense prediction</kbd>, expanded into <
 
 ### Field Evolution
 
-Object tracking evolved from <kbd>motion-model-based association</kbd> and <kbd>tracking-by-detection</kbd> to <kbd>appearance-aware association</kbd>, <kbd>joint detection-tracking models</kbd>, <kbd>transformer query tracking</kbd>, and <kbd>segmentation-memory-based video tracking</kbd>.
+- Simple Online and Realtime Tracking -> Deep Association Metric: <kbd>Kalman filtering</kbd> and <kbd>Hungarian matching</kbd> to <kbd>appearance embeddings</kbd>
+- Deep Association Metric -> Tracktor++ -> CenterTrack: <kbd>robust association</kbd> to <kbd>detector regression</kbd> and <kbd>joint detection and tracking</kbd>
+- CenterTrack -> TrackFormer -> ByteTrack: <kbd>object centers</kbd> to <kbd>transformer queries</kbd> and <kbd>low-confidence detection boxes</kbd>
+- ByteTrack -> SAM 2: <kbd>data association</kbd> to <kbd>promptable video object tracking</kbd> with <kbd>segmentation memory</kbd>
 
 ### Reading Order
 
@@ -132,7 +140,10 @@ Object tracking evolved from <kbd>motion-model-based association</kbd> and <kbd>
 
 ### Field Evolution
 
-Geometry research started from <kbd>projective geometry</kbd>, <kbd>stereo</kbd>, and <kbd>dense correspondence</kbd>, then moved into <kbd>learned optical flow</kbd>, <kbd>monocular depth</kbd>, <kbd>depth foundation models</kbd>, and <kbd>feed-forward geometry prediction</kbd>.
+- RAFT -> GMFlow: <kbd>all-pairs correlation volume</kbd> and <kbd>iterative flow refinement</kbd> to <kbd>transformer-style global matching</kbd>
+- MiDaS -> Depth Anything -> Depth Anything V2: <kbd>relative depth</kbd> and <kbd>multi-dataset training</kbd> to <kbd>large-scale unlabeled data</kbd> and <kbd>synthetic data</kbd>
+- DUSt3R -> VGGT: <kbd>pointmap prediction</kbd> to <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, and <kbd>tracks</kbd>
+- VGGT -> DEFOM-Stereo: <kbd>depth maps</kbd> and <kbd>point maps</kbd> to <kbd>monocular depth foundation priors</kbd> for <kbd>stereo matching</kbd>
 
 ### Reading Order
 
@@ -178,7 +189,10 @@ Geometry research started from <kbd>projective geometry</kbd>, <kbd>stereo</kbd>
 
 ### Field Evolution
 
-SLAM and odometry progressed from <kbd>feature tracking</kbd>, <kbd>bundle adjustment</kbd>, and <kbd>loop closure</kbd> to <kbd>learned dense optimization</kbd>, <kbd>neural implicit mapping</kbd>, and <kbd>occupancy-centric scene representations</kbd> for autonomous driving.
+- ORB-SLAM3 -> DROID-SLAM: <kbd>feature-based SLAM</kbd> and <kbd>loop closure</kbd> to <kbd>learned recurrent updates</kbd> and <kbd>dense bundle adjustment</kbd>
+- DROID-SLAM -> NICE-SLAM -> Co-SLAM: <kbd>dense bundle adjustment</kbd> to <kbd>neural implicit dense mapping</kbd> and <kbd>real-time neural SLAM</kbd>
+- Scene as Occupancy -> OccTransformer: <kbd>camera-only 3D occupancy prediction</kbd> to <kbd>BEV-style perception</kbd> and <kbd>occupancy</kbd>
+- OccTransformer -> LiDAR-based 4D Occupancy Completion and Forecasting: <kbd>occupancy</kbd> to <kbd>occupancy completion</kbd> and <kbd>future occupancy forecasting</kbd>
 
 ### Reading Order
 
@@ -221,7 +235,10 @@ SLAM and odometry progressed from <kbd>feature tracking</kbd>, <kbd>bundle adjus
 
 ### Field Evolution
 
-3D reconstruction grew out of <kbd>Structure from Motion</kbd> and <kbd>multi-view stereo</kbd>, then shifted to <kbd>neural radiance fields</kbd>, <kbd>fast neural encodings</kbd>, <kbd>explicit Gaussian representations</kbd>, and <kbd>feed-forward reconstruction</kbd>.
+- Structure-from-Motion Revisited -> NeRF: <kbd>classical SfM pipeline</kbd> and <kbd>COLMAP</kbd> to <kbd>volumetric rendering</kbd>
+- NeRF -> Instant-NGP: <kbd>positional encoding</kbd> and <kbd>view synthesis</kbd> to <kbd>hash grid encoding</kbd> and <kbd>fast neural scene fitting</kbd>
+- Instant-NGP -> 3D Gaussian Splatting: <kbd>fast neural scene fitting</kbd> to <kbd>explicit anisotropic Gaussians</kbd> and <kbd>differentiable rasterization</kbd>
+- 3D Gaussian Splatting -> pixelSplat -> DUSt3R -> VGGT: <kbd>feed-forward Gaussian splat prediction</kbd> to <kbd>pointmap prediction</kbd> and <kbd>generalist 3D geometry</kbd>
 
 ### Reading Order
 
@@ -264,7 +281,10 @@ SLAM and odometry progressed from <kbd>feature tracking</kbd>, <kbd>bundle adjus
 
 ### Field Evolution
 
-Vision foundation models moved from <kbd>supervised CNN backbones</kbd> to <kbd>ViT scaling</kbd>, <kbd>contrastive image-text pretraining</kbd>, <kbd>masked image modeling</kbd>, <kbd>self-supervised dense features</kbd>, <kbd>promptable perception</kbd>, and <kbd>vision-language generalist encoders</kbd>.
+- ViT -> CLIP: <kbd>ViT patch tokens</kbd> and <kbd>scale</kbd> to <kbd>image-text contrastive learning</kbd>
+- CLIP -> MAE -> DINOv2: <kbd>zero-shot transfer</kbd> to <kbd>masked image modeling</kbd> and <kbd>self-supervised features</kbd>
+- DINOv2 -> SigLIP -> SAM: <kbd>dense transfer</kbd> and <kbd>scalable image-text loss design</kbd> to <kbd>promptable segmentation</kbd>
+- SAM -> SAM 2 -> VideoPrism -> InternVL: <kbd>image-video segmentation</kbd> to <kbd>video foundation representation learning</kbd> and <kbd>VLM alignment</kbd>
 
 ### Reading Order
 
@@ -316,7 +336,10 @@ Vision foundation models moved from <kbd>supervised CNN backbones</kbd> to <kbd>
 
 ### Field Evolution
 
-End-to-end driving and robotics started with <kbd>behavior cloning</kbd> and <kbd>modular perception-control stacks</kbd>, then moved toward <kbd>planning-oriented driving networks</kbd>, <kbd>diffusion-based visuomotor policies</kbd>, and <kbd>vision-language-action models</kbd>.
+- End-to-end Learning of Driving Models -> UniAD: <kbd>large-scale imitation learning</kbd> to <kbd>perception</kbd>, <kbd>prediction</kbd>, <kbd>mapping</kbd>, and <kbd>planning</kbd>
+- UniAD -> Diffusion Policy: <kbd>planning</kbd> to <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, and <kbd>multimodal action distributions</kbd>
+- Diffusion Policy -> RT-2 -> OpenVLA: <kbd>robot actions</kbd> as <kbd>language-model tokens</kbd> to <kbd>open VLA training</kbd>
+- OpenVLA -> OpenDriveVLA -> ORION: <kbd>VLA framing</kbd> to <kbd>autonomous driving</kbd> and <kbd>language-instructed driving action generation</kbd>
 
 ### Reading Order
 
@@ -359,7 +382,10 @@ End-to-end driving and robotics started with <kbd>behavior cloning</kbd> and <kb
 
 ### Field Evolution
 
-Generative vision advanced from <kbd>image diffusion</kbd> to <kbd>latent diffusion</kbd> and <kbd>video generation</kbd>, then expanded into <kbd>action-conditioned interactive environments</kbd>, <kbd>latent world models</kbd>, and <kbd>controllable driving simulators</kbd>.
+- DDPM -> Latent Diffusion: <kbd>diffusion objective</kbd> and <kbd>denoising process</kbd> to <kbd>latent diffusion</kbd>
+- Latent Diffusion -> Video Diffusion -> Stable Video Diffusion: <kbd>cross-attention conditioning</kbd> to <kbd>video diffusion</kbd>, <kbd>image-to-video</kbd>, and <kbd>text-to-video scaling</kbd>
+- DreamerV3 -> Genie: <kbd>latent imagination</kbd> and <kbd>control</kbd> to <kbd>action-controllable environments</kbd>
+- Genie -> GAIA-1 -> GAIA-2 -> DrivingWorld: <kbd>generative driving simulation</kbd> to <kbd>controllable multi-view generation</kbd> and <kbd>video-token world modeling</kbd>
 
 ### Reading Order
 
@@ -411,7 +437,10 @@ Generative vision advanced from <kbd>image diffusion</kbd> to <kbd>latent diffus
 
 ### Field Evolution
 
-Robustness research began with <kbd>adversarial examples</kbd> and <kbd>robust optimization</kbd>, expanded into <kbd>uncertainty estimation</kbd> and <kbd>calibration</kbd>, then developed <kbd>domain adaptation</kbd>, <kbd>test-time adaptation</kbd>, and <kbd>distribution-shift benchmarks</kbd>.
+- Explaining and Harnessing Adversarial Examples -> PGD adversarial training: <kbd>adversarial-example setup</kbd> to <kbd>robust optimization</kbd>
+- Domain-Adversarial Training -> Deep Ensembles -> Bayesian uncertainty: <kbd>domain-invariant representations</kbd> to <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, and <kbd>epistemic uncertainty</kbd>
+- Bayesian uncertainty -> Tent: <kbd>aleatoric uncertainty</kbd> and <kbd>dense prediction</kbd> to <kbd>entropy minimization</kbd> and <kbd>batch-norm adaptation</kbd>
+- Tent -> RobustBench -> WILDS: <kbd>test time</kbd> adaptation to <kbd>standardized robustness evaluation</kbd> and <kbd>realistic domain shift</kbd>
 
 ### Reading Order
 
