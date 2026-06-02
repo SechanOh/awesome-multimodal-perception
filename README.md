@@ -9,13 +9,15 @@ Last updated: 2026-06-02
 - [1. Object Detection](#1-object-detection)
 - [2. Segmentation](#2-segmentation)
 - [3. Object Tracking](#3-object-tracking)
-- [4. Depth, Geometry, and Optical Flow](#4-depth-geometry-and-optical-flow)
-- [5. SLAM, Odometry, and Occupancy](#5-slam-odometry-and-occupancy)
-- [6. 3D Reconstruction](#6-3d-reconstruction)
-- [7. Foundation Models](#7-foundation-models)
-- [8. End-to-End Autonomous Driving and Robotics Models](#8-end-to-end-autonomous-driving-and-robotics-models)
-- [9. Generative Vision and World Models](#9-generative-vision-and-world-models)
-- [10. Robustness, Uncertainty, and Domain Adaptation](#10-robustness-uncertainty-and-domain-adaptation)
+- [4. Depth Estimation](#4-depth-estimation)
+- [5. 3D Vision](#5-3d-vision)
+- [6. Optical Flow](#6-optical-flow)
+- [7. SLAM, Odometry, and Occupancy](#7-slam-odometry-and-occupancy)
+- [8. 3D Reconstruction](#8-3d-reconstruction)
+- [9. Foundation Models](#9-foundation-models)
+- [10. End-to-End Autonomous Driving and Robotics Models](#10-end-to-end-autonomous-driving-and-robotics-models)
+- [11. Generative Vision and World Models](#11-generative-vision-and-world-models)
+- [12. Robustness, Uncertainty, and Domain Adaptation](#12-robustness-uncertainty-and-domain-adaptation)
 
 ## 1. Object Detection
 
@@ -142,16 +144,73 @@ Last updated: 2026-06-02
 - [TrackFormer paper explanation search](https://www.youtube.com/results?search_query=TrackFormer+multi+object+tracking+transformer+paper+explained)  
   Use this to connect DETR-style queries with tracking.
 
-## 4. Depth, Geometry, and Optical Flow
+## 4. Depth Estimation
+
+### Field Evolution
+
+| **Papers** | **Shift** |
+|---|---|
+| MiDaS → Depth Anything | <kbd>relative depth</kbd>, <kbd>multi-dataset training</kbd> → <kbd>large-scale unlabeled data</kbd>, <kbd>teacher-student depth training</kbd> |
+| Depth Anything → Depth Anything V2 | <kbd>large-scale unlabeled data</kbd> → <kbd>synthetic data</kbd>, <kbd>sharper predictions</kbd>, <kbd>practical model variants</kbd> |
+| Depth Anything V2 → DEFOM-Stereo | <kbd>monocular depth foundation priors</kbd> → <kbd>stereo matching</kbd>, <kbd>depth foundation priors</kbd> |
+
+### Reading Order
+
+1. [Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-Shot Cross-Dataset Transfer](https://arxiv.org/abs/1907.01341), TPAMI 2022  
+   Skim for: <kbd>MiDaS</kbd>, <kbd>relative depth</kbd>, <kbd>multi-dataset training</kbd>
+
+2. [Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data](https://arxiv.org/abs/2401.10891), CVPR 2024  
+   Skim for: <kbd>large-scale unlabeled data</kbd>, <kbd>teacher-student depth training</kbd>
+
+3. [Depth Anything V2](https://arxiv.org/abs/2406.09414), NeurIPS 2024  
+   Skim for: <kbd>synthetic data</kbd>, <kbd>sharper predictions</kbd>, <kbd>practical model variants</kbd>
+
+4. [DEFOM-Stereo: Depth Foundation Model Based Stereo Matching](https://openaccess.thecvf.com/content/CVPR2025/papers/Jiang_DEFOM-Stereo_Depth_Foundation_Model_Based_Stereo_Matching_CVPR_2025_paper.pdf), CVPR 2025  
+   Skim for: <kbd>monocular depth foundation priors</kbd>, <kbd>stereo matching</kbd>
+
+### YouTube Skim Resources
+
+- [Monocular depth estimation lecture search](https://www.youtube.com/results?search_query=monocular+depth+estimation+computer+vision+lecture)  
+  Use this before MiDaS and Depth Anything.
+
+- [Depth Anything paper explanation search](https://www.youtube.com/results?search_query=Depth+Anything+paper+explained+monocular+depth+estimation)  
+  Use this to understand teacher-student training, unlabeled data, and practical inference behavior.
+
+- [Stereo matching lecture search](https://www.youtube.com/results?search_query=stereo+matching+depth+estimation+computer+vision+lecture)  
+  Use this before DEFOM-Stereo if stereo geometry is unfamiliar.
+
+## 5. 3D Vision
+
+### Field Evolution
+
+| **Papers** | **Shift** |
+|---|---|
+| DUSt3R → VGGT | <kbd>pointmap prediction</kbd>, <kbd>unconstrained image pairs</kbd> → <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd> |
+| VGGT → Generalist 3D Geometry | <kbd>task-specific geometry pipelines</kbd> → <kbd>foundation-style 3D vision</kbd>, <kbd>camera pose</kbd>, <kbd>correspondence</kbd>, <kbd>3D structure</kbd> |
+
+### Reading Order
+
+1. [DUSt3R: Geometric 3D Vision Made Easy](https://arxiv.org/abs/2312.14132), CVPR 2024  
+   Skim for: <kbd>pointmap prediction</kbd>, <kbd>unconstrained image pairs</kbd>, <kbd>reconstruction without calibrated cameras</kbd>
+
+2. [VGGT: Visual Geometry Grounded Transformer](https://arxiv.org/abs/2503.11651), CVPR 2025  
+   Skim for: <kbd>feed-forward prediction</kbd>, <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd>
+
+### YouTube Skim Resources
+
+- [DUSt3R and VGGT explanation search](https://www.youtube.com/results?search_query=DUSt3R+VGGT+visual+geometry+grounded+transformer+explained)  
+  These papers are newer, so search results are more useful than relying on one canonical lecture.
+
+- [Multiple view geometry lecture search](https://www.youtube.com/results?search_query=multiple+view+geometry+computer+vision+lecture+camera+pose+epipolar+geometry)  
+  Use this for camera pose, correspondences, epipolar geometry, and triangulation background.
+
+## 6. Optical Flow
 
 ### Field Evolution
 
 | **Papers** | **Shift** |
 |---|---|
 | RAFT → GMFlow | <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd> → <kbd>transformer-style global matching</kbd> |
-| MiDaS → Depth Anything → Depth Anything V2 | <kbd>relative depth</kbd>, <kbd>multi-dataset training</kbd> → <kbd>large-scale unlabeled data</kbd>, <kbd>synthetic data</kbd> |
-| DUSt3R → VGGT | <kbd>pointmap prediction</kbd> → <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd> |
-| VGGT → DEFOM-Stereo | <kbd>depth maps</kbd>, <kbd>point maps</kbd> → <kbd>monocular depth foundation priors</kbd> for <kbd>stereo matching</kbd> |
 
 ### Reading Order
 
@@ -161,24 +220,6 @@ Last updated: 2026-06-02
 2. [GMFlow: Learning Optical Flow via Global Matching](https://arxiv.org/abs/2111.13680), CVPR 2022  
    Skim for: <kbd>transformer-style global matching</kbd>, <kbd>optical flow</kbd>
 
-3. [Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-Shot Cross-Dataset Transfer](https://arxiv.org/abs/1907.01341), TPAMI 2022  
-   Skim for: <kbd>MiDaS</kbd>, <kbd>relative depth</kbd>, <kbd>multi-dataset training</kbd>
-
-4. [Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data](https://arxiv.org/abs/2401.10891), CVPR 2024  
-   Skim for: <kbd>large-scale unlabeled data</kbd>, <kbd>teacher-student depth training</kbd>
-
-5. [Depth Anything V2](https://arxiv.org/abs/2406.09414), NeurIPS 2024  
-   Skim for: <kbd>synthetic data</kbd>, <kbd>sharper predictions</kbd>, <kbd>practical model variants</kbd>
-
-6. [DUSt3R: Geometric 3D Vision Made Easy](https://arxiv.org/abs/2312.14132), CVPR 2024  
-   Skim for: <kbd>pointmap prediction</kbd>, <kbd>unconstrained image pairs</kbd>
-
-7. [VGGT: Visual Geometry Grounded Transformer](https://arxiv.org/abs/2503.11651), CVPR 2025  
-   Skim for: <kbd>feed-forward prediction</kbd>, <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd>
-
-8. [DEFOM-Stereo: Depth Foundation Model Based Stereo Matching](https://openaccess.thecvf.com/content/CVPR2025/papers/Jiang_DEFOM-Stereo_Depth_Foundation_Model_Based_Stereo_Matching_CVPR_2025_paper.pdf), CVPR 2025  
-   Skim for: <kbd>monocular depth foundation priors</kbd>, <kbd>stereo matching</kbd>
-
 ### YouTube Skim Resources
 
 - [Optical flow lecture search](https://www.youtube.com/results?search_query=optical+flow+computer+vision+lecture+RAFT)  
@@ -187,13 +228,7 @@ Last updated: 2026-06-02
 - [RAFT paper explanation search](https://www.youtube.com/results?search_query=RAFT+optical+flow+paper+explained)  
   Use this to understand correlation volumes and recurrent update blocks.
 
-- [Monocular depth estimation lecture search](https://www.youtube.com/results?search_query=monocular+depth+estimation+computer+vision+lecture)  
-  Use this before MiDaS and Depth Anything.
-
-- [DUSt3R and VGGT explanation search](https://www.youtube.com/results?search_query=DUSt3R+VGGT+visual+geometry+grounded+transformer+explained)  
-  These papers are newer, so search results are more useful than relying on one canonical lecture.
-
-## 5. SLAM, Odometry, and Occupancy
+## 7. SLAM, Odometry, and Occupancy
 
 ### Field Evolution
 
@@ -241,7 +276,7 @@ Last updated: 2026-06-02
 - [NVIDIA DRIVE Labs occupancy prediction video search](https://www.youtube.com/results?search_query=NVIDIA+DRIVE+Labs+occupancy+prediction+autonomous+vehicle)  
   Useful for the autonomous-driving occupancy framing, even though it is less paper-specific.
 
-## 6. 3D Reconstruction
+## 8. 3D Reconstruction
 
 ### Field Evolution
 
@@ -289,7 +324,7 @@ Last updated: 2026-06-02
 - [VGGT 3D reconstruction explanation search](https://www.youtube.com/results?search_query=VGGT+Visual+Geometry+Grounded+Transformer+3D+reconstruction+explained)  
   Use this after DUSt3R and 3D Gaussian Splatting.
 
-## 7. Foundation Models
+## 9. Foundation Models
 
 ### Field Evolution
 
@@ -346,7 +381,7 @@ Last updated: 2026-06-02
 - [SAM and SAM 2 explanation search](https://www.youtube.com/results?search_query=SAM+2+Segment+Anything+paper+explained)  
   Use this after reading SAM to connect promptable segmentation with video memory.
 
-## 8. End-to-End Autonomous Driving and Robotics Models
+## 10. End-to-End Autonomous Driving and Robotics Models
 
 ### Field Evolution
 
@@ -394,7 +429,7 @@ Last updated: 2026-06-02
 - [OpenVLA explanation search](https://www.youtube.com/results?search_query=OpenVLA+vision+language+action+model+paper+explained)  
   Use this for the open-source VLA recipe and fine-tuning details.
 
-## 9. Generative Vision and World Models
+## 11. Generative Vision and World Models
 
 ### Field Evolution
 
@@ -451,7 +486,7 @@ Last updated: 2026-06-02
 - [GAIA driving world model explanation search](https://www.youtube.com/results?search_query=GAIA+generative+world+model+autonomous+driving+explained)  
   Use this for the driving-specific world-model framing.
 
-## 10. Robustness, Uncertainty, and Domain Adaptation
+## 12. Robustness, Uncertainty, and Domain Adaptation
 
 ### Field Evolution
 
