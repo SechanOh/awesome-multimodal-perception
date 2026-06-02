@@ -195,29 +195,42 @@ Last updated: 2026-06-02
 
 ## 5. Optical Flow and Motion Correspondence
 
-This section is intentionally lightweight. For autonomous driving and robotics, dense 2D optical flow is useful background for correspondence and motion cues, but modern systems often move toward temporal BEV features, 3D scene flow, occupancy flow, or forecasting representations. Skim this section for the core idea, then rely on later sections for system-level temporal reasoning.
-
 ### Field Evolution
 
-| **Papers / Readings** | **Shift** |
+| **Papers** | **Shift** |
 |---|---|
-| Classical Optical Flow Overview → RAFT | <kbd>brightness constancy</kbd>, <kbd>local/global optimization</kbd> → <kbd>learned dense correspondence with all-pairs correlation</kbd> |
+| Lucas-Kanade / Horn-Schunck | <kbd>local image alignment</kbd> ↔ <kbd>global smoothness-regularized flow</kbd> |
+| Lucas-Kanade / Horn-Schunck → FlowNet | <kbd>hand-designed optimization</kbd> → <kbd>end-to-end learned optical flow</kbd> |
+| FlowNet → PWC-Net | <kbd>direct CNN regression</kbd> → <kbd>pyramid, warping, and cost volume</kbd> |
+| PWC-Net → RAFT → GMFlow | <kbd>coarse-to-fine matching</kbd> → <kbd>all-pairs correlation</kbd> → <kbd>global matching</kbd> |
 
 ### Reading Order
 
-1. [Classical optical flow overview](https://www.youtube.com/results?search_query=optical+flow+computer+vision+lecture+Lucas+Kanade+Horn+Schunck)  
-   Skim for: <kbd>brightness constancy</kbd>, <kbd>aperture problem</kbd>, <kbd>local matching</kbd>, <kbd>smoothness prior</kbd>
+1. [An Iterative Image Registration Technique with an Application to Stereo Vision](https://www.ri.cmu.edu/pub_files/pub3/lucas_bruce_d_1981_2/lucas_bruce_d_1981_2.pdf), IJCAI 1981  
+   Skim for: <kbd>Lucas-Kanade</kbd>, <kbd>local motion</kbd>, <kbd>image alignment</kbd>
 
-2. [RAFT: Recurrent All-Pairs Field Transforms for Optical Flow](https://arxiv.org/abs/2003.12039), ECCV 2020  
-   Skim for: <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd>, <kbd>dense correspondence</kbd>
+2. [Determining Optical Flow](https://people.csail.mit.edu/bkph/papers/Optical_Flow_OPT.pdf), Artificial Intelligence 1981  
+   Skim for: <kbd>Horn-Schunck</kbd>, <kbd>brightness constancy</kbd>, <kbd>smoothness prior</kbd>
+
+3. [FlowNet: Learning Optical Flow with Convolutional Networks](https://arxiv.org/abs/1504.06852), ICCV 2015  
+   Skim for: <kbd>learned optical flow</kbd>, <kbd>synthetic training data</kbd>, <kbd>end-to-end flow prediction</kbd>
+
+4. [PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume](https://arxiv.org/abs/1709.02371), CVPR 2018  
+   Skim for: <kbd>pyramid</kbd>, <kbd>warping</kbd>, <kbd>cost volume</kbd>
+
+5. [RAFT: Recurrent All-Pairs Field Transforms for Optical Flow](https://arxiv.org/abs/2003.12039), ECCV 2020  
+   Skim for: <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd>
+
+6. [GMFlow: Learning Optical Flow via Global Matching](https://arxiv.org/abs/2111.13680), CVPR 2022  
+   Skim for: <kbd>transformer-style global matching</kbd>, <kbd>correspondence</kbd>
 
 ### YouTube Skim Resources
 
+- [Optical flow lecture search](https://www.youtube.com/results?search_query=optical+flow+computer+vision+lecture+Lucas+Kanade+Horn+Schunck+RAFT)  
+  Watch a classical optical-flow lecture first, then RAFT-specific explanations.
+
 - [RAFT paper explanation search](https://www.youtube.com/results?search_query=RAFT+optical+flow+paper+explained)  
   Use this to understand correlation volumes and recurrent update blocks.
-
-- [Scene flow / occupancy flow search](https://www.youtube.com/results?search_query=scene+flow+occupancy+flow+autonomous+driving+lecture)  
-  Use this only as optional context after RAFT; these ideas are better connected to BEV perception, occupancy, and motion forecasting.
 
 ## 6. Multiple View Geometry and 3D Vision
 
