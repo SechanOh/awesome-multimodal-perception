@@ -21,27 +21,31 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- Faster R-CNN -> YOLOv3: <kbd>two-stage detection</kbd> to <kbd>one-stage real-time detection</kbd>
-- YOLOv3 -> DETR: <kbd>multi-scale prediction</kbd> to <kbd>object queries</kbd> and <kbd>Hungarian matching</kbd>
-- DETR -> Deformable DETR -> DINO: <kbd>NMS-free detection</kbd> to <kbd>sparse multi-scale attention</kbd> and <kbd>denoising training</kbd>
-- GLIP -> Grounding DINO: <kbd>phrase grounding</kbd> to <kbd>text-conditioned open-set detection</kbd>
+1. **Faster R-CNN -> YOLOv3**
+    <kbd>two-stage detection</kbd> to <kbd>one-stage real-time detection</kbd>
+2. **YOLOv3 -> DETR**
+    <kbd>multi-scale prediction</kbd> to <kbd>object queries</kbd> and <kbd>Hungarian matching</kbd>
+3. **DETR -> Deformable DETR -> DINO**
+    <kbd>NMS-free detection</kbd> to <kbd>sparse multi-scale attention</kbd> and <kbd>denoising training</kbd>
+4. **GLIP -> Grounding DINO**
+    <kbd>phrase grounding</kbd> to <kbd>text-conditioned open-set detection</kbd>
 
 ### Reading Order
 
 1. [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/abs/1506.01497), NeurIPS 2015  
-   Skim for: <kbd>region proposal networks</kbd> <kbd>two-stage detection</kbd> <kbd>anchors</kbd> <kbd>RoI heads</kbd>
+   Skim for: <kbd>region proposal networks</kbd>, <kbd>two-stage detection</kbd>, <kbd>anchors</kbd>, <kbd>RoI heads</kbd>
 
 2. [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767), 2018  
-   Skim for: <kbd>one-stage real-time detection</kbd> <kbd>multi-scale prediction</kbd> <kbd>speed vs accuracy tradeoffs</kbd>
+   Skim for: <kbd>one-stage real-time detection</kbd>, <kbd>multi-scale prediction</kbd>, <kbd>speed vs accuracy tradeoffs</kbd>
 
 3. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872), ECCV 2020  
-   Skim for: <kbd>DETR</kbd> <kbd>object queries</kbd> <kbd>Hungarian matching</kbd> <kbd>NMS-free detection</kbd>
+   Skim for: <kbd>DETR</kbd>, <kbd>object queries</kbd>, <kbd>Hungarian matching</kbd>, <kbd>NMS-free detection</kbd>
 
 4. [Deformable DETR: Deformable Transformers for End-to-End Object Detection](https://arxiv.org/abs/2010.04159), ICLR 2021  
-   Skim for: <kbd>sparse multi-scale attention</kbd> <kbd>faster DETR convergence</kbd>
+   Skim for: <kbd>sparse multi-scale attention</kbd>, <kbd>faster DETR convergence</kbd>
 
 5. [DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection](https://arxiv.org/abs/2203.03605), ICLR 2023  
-   Skim for: <kbd>denoising training</kbd> <kbd>anchor design</kbd> <kbd>strong DETR training recipes</kbd>
+   Skim for: <kbd>denoising training</kbd>, <kbd>anchor design</kbd>, <kbd>strong DETR training recipes</kbd>
 
 6. [Grounded Language-Image Pre-training](https://arxiv.org/abs/2112.03857), CVPR 2022  
    Skim for: <kbd>phrase grounding</kbd>
@@ -64,23 +68,26 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- Mask R-CNN -> Mask2Former: <kbd>mask prediction</kbd> to <kbd>universal segmentation</kbd>
-- Mask2Former -> Segment Anything: <kbd>semantic segmentation</kbd>, <kbd>instance segmentation</kbd>, and <kbd>panoptic segmentation</kbd> to <kbd>promptable segmentation</kbd>
-- Segment Anything -> SAM 2: <kbd>SA-1B</kbd> and <kbd>ambiguity-aware mask prediction</kbd> to <kbd>memory-based segmentation</kbd> and <kbd>video segmentation</kbd>
+1. **Mask R-CNN -> Mask2Former**
+    <kbd>mask prediction</kbd> to <kbd>universal segmentation</kbd>
+2. **Mask2Former -> Segment Anything**
+    <kbd>semantic segmentation</kbd>, <kbd>instance segmentation</kbd>, and <kbd>panoptic segmentation</kbd> to <kbd>promptable segmentation</kbd>
+3. **Segment Anything -> SAM 2**
+    <kbd>SA-1B</kbd> and <kbd>ambiguity-aware mask prediction</kbd> to <kbd>memory-based segmentation</kbd> and <kbd>video segmentation</kbd>
 
 ### Reading Order
 
 1. [Mask R-CNN](https://arxiv.org/abs/1703.06870), ICCV 2017  
-   Skim for: <kbd>RoIAlign</kbd> <kbd>mask prediction</kbd> <kbd>instance detection</kbd>
+   Skim for: <kbd>RoIAlign</kbd>, <kbd>mask prediction</kbd>, <kbd>instance detection</kbd>
 
 2. [Masked-attention Mask Transformer for Universal Image Segmentation](https://arxiv.org/abs/2112.01527), CVPR 2022  
-   Skim for: <kbd>Mask2Former</kbd> <kbd>universal segmentation</kbd> <kbd>semantic segmentation</kbd> <kbd>instance segmentation</kbd> <kbd>panoptic segmentation</kbd>
+   Skim for: <kbd>Mask2Former</kbd>, <kbd>universal segmentation</kbd>, <kbd>semantic segmentation</kbd>, <kbd>instance segmentation</kbd>, <kbd>panoptic segmentation</kbd>
 
 3. [Segment Anything](https://arxiv.org/abs/2304.02643), ICCV 2023  
-   Skim for: <kbd>promptable segmentation</kbd> <kbd>SA-1B</kbd> <kbd>ambiguity-aware mask prediction</kbd>
+   Skim for: <kbd>promptable segmentation</kbd>, <kbd>SA-1B</kbd>, <kbd>ambiguity-aware mask prediction</kbd>
 
 4. [SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714), 2024  
-   Skim for: <kbd>memory-based segmentation</kbd> <kbd>video segmentation</kbd>
+   Skim for: <kbd>memory-based segmentation</kbd>, <kbd>video segmentation</kbd>
 
 ### YouTube Skim Resources
 
@@ -97,33 +104,37 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- Simple Online and Realtime Tracking -> Deep Association Metric: <kbd>Kalman filtering</kbd> and <kbd>Hungarian matching</kbd> to <kbd>appearance embeddings</kbd>
-- Deep Association Metric -> Tracktor++ -> CenterTrack: <kbd>robust association</kbd> to <kbd>detector regression</kbd> and <kbd>joint detection and tracking</kbd>
-- CenterTrack -> TrackFormer -> ByteTrack: <kbd>object centers</kbd> to <kbd>transformer queries</kbd> and <kbd>low-confidence detection boxes</kbd>
-- ByteTrack -> SAM 2: <kbd>data association</kbd> to <kbd>promptable video object tracking</kbd> with <kbd>segmentation memory</kbd>
+1. **Simple Online and Realtime Tracking -> Deep Association Metric**
+    <kbd>Kalman filtering</kbd> and <kbd>Hungarian matching</kbd> to <kbd>appearance embeddings</kbd>
+2. **Deep Association Metric -> Tracktor++ -> CenterTrack**
+    <kbd>robust association</kbd> to <kbd>detector regression</kbd> and <kbd>joint detection and tracking</kbd>
+3. **CenterTrack -> TrackFormer -> ByteTrack**
+    <kbd>object centers</kbd> to <kbd>transformer queries</kbd> and <kbd>low-confidence detection boxes</kbd>
+4. **ByteTrack -> SAM 2**
+    <kbd>data association</kbd> to <kbd>promptable video object tracking</kbd> with <kbd>segmentation memory</kbd>
 
 ### Reading Order
 
 1. [Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763), ICIP 2016  
-   Skim for: <kbd>Kalman filtering</kbd> <kbd>Hungarian matching</kbd> <kbd>tracking-by-detection</kbd>
+   Skim for: <kbd>Kalman filtering</kbd>, <kbd>Hungarian matching</kbd>, <kbd>tracking-by-detection</kbd>
 
 2. [Simple Online and Realtime Tracking with a Deep Association Metric](https://arxiv.org/abs/1703.07402), ICIP 2017  
-   Skim for: <kbd>appearance embeddings</kbd> <kbd>robust association</kbd>
+   Skim for: <kbd>appearance embeddings</kbd>, <kbd>robust association</kbd>
 
 3. [Tracktor++: Tracking without Bells and Whistles](https://arxiv.org/abs/1903.05625), ICCV 2019  
-   Skim for: <kbd>detector regression</kbd> <kbd>tracking</kbd>
+   Skim for: <kbd>detector regression</kbd>, <kbd>tracking</kbd>
 
 4. [CenterTrack: Tracking Objects as Points](https://arxiv.org/abs/2004.01177), ECCV 2020  
-   Skim for: <kbd>joint detection and tracking</kbd> <kbd>object centers</kbd>
+   Skim for: <kbd>joint detection and tracking</kbd>, <kbd>object centers</kbd>
 
 5. [TrackFormer: Multi-Object Tracking with Transformers](https://arxiv.org/abs/2101.02702), CVPR 2022  
-   Skim for: <kbd>transformer queries</kbd> <kbd>detection-to-tracking</kbd>
+   Skim for: <kbd>transformer queries</kbd>, <kbd>detection-to-tracking</kbd>
 
 6. [ByteTrack: Multi-Object Tracking by Associating Every Detection Box](https://arxiv.org/abs/2110.06864), ECCV 2022  
-   Skim for: <kbd>low-confidence detection boxes</kbd> <kbd>data association</kbd>
+   Skim for: <kbd>low-confidence detection boxes</kbd>, <kbd>data association</kbd>
 
 7. [SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714), 2024  
-   Skim for: <kbd>promptable video object tracking</kbd> <kbd>segmentation memory</kbd>
+   Skim for: <kbd>promptable video object tracking</kbd>, <kbd>segmentation memory</kbd>
 
 ### YouTube Skim Resources
 
@@ -140,36 +151,40 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- RAFT -> GMFlow: <kbd>all-pairs correlation volume</kbd> and <kbd>iterative flow refinement</kbd> to <kbd>transformer-style global matching</kbd>
-- MiDaS -> Depth Anything -> Depth Anything V2: <kbd>relative depth</kbd> and <kbd>multi-dataset training</kbd> to <kbd>large-scale unlabeled data</kbd> and <kbd>synthetic data</kbd>
-- DUSt3R -> VGGT: <kbd>pointmap prediction</kbd> to <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, and <kbd>tracks</kbd>
-- VGGT -> DEFOM-Stereo: <kbd>depth maps</kbd> and <kbd>point maps</kbd> to <kbd>monocular depth foundation priors</kbd> for <kbd>stereo matching</kbd>
+1. **RAFT -> GMFlow**
+    <kbd>all-pairs correlation volume</kbd> and <kbd>iterative flow refinement</kbd> to <kbd>transformer-style global matching</kbd>
+2. **MiDaS -> Depth Anything -> Depth Anything V2**
+    <kbd>relative depth</kbd> and <kbd>multi-dataset training</kbd> to <kbd>large-scale unlabeled data</kbd> and <kbd>synthetic data</kbd>
+3. **DUSt3R -> VGGT**
+    <kbd>pointmap prediction</kbd> to <kbd>feed-forward prediction</kbd> of <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, and <kbd>tracks</kbd>
+4. **VGGT -> DEFOM-Stereo**
+    <kbd>depth maps</kbd> and <kbd>point maps</kbd> to <kbd>monocular depth foundation priors</kbd> for <kbd>stereo matching</kbd>
 
 ### Reading Order
 
 1. [RAFT: Recurrent All-Pairs Field Transforms for Optical Flow](https://arxiv.org/abs/2003.12039), ECCV 2020  
-   Skim for: <kbd>all-pairs correlation volume</kbd> <kbd>iterative flow refinement</kbd>
+   Skim for: <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd>
 
 2. [GMFlow: Learning Optical Flow via Global Matching](https://arxiv.org/abs/2111.13680), CVPR 2022  
-   Skim for: <kbd>transformer-style global matching</kbd> <kbd>optical flow</kbd>
+   Skim for: <kbd>transformer-style global matching</kbd>, <kbd>optical flow</kbd>
 
 3. [Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-Shot Cross-Dataset Transfer](https://arxiv.org/abs/1907.01341), TPAMI 2022  
-   Skim for: <kbd>MiDaS</kbd> <kbd>relative depth</kbd> <kbd>multi-dataset training</kbd>
+   Skim for: <kbd>MiDaS</kbd>, <kbd>relative depth</kbd>, <kbd>multi-dataset training</kbd>
 
 4. [Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data](https://arxiv.org/abs/2401.10891), CVPR 2024  
-   Skim for: <kbd>large-scale unlabeled data</kbd> <kbd>teacher-student depth training</kbd>
+   Skim for: <kbd>large-scale unlabeled data</kbd>, <kbd>teacher-student depth training</kbd>
 
 5. [Depth Anything V2](https://arxiv.org/abs/2406.09414), NeurIPS 2024  
-   Skim for: <kbd>synthetic data</kbd> <kbd>sharper predictions</kbd> <kbd>practical model variants</kbd>
+   Skim for: <kbd>synthetic data</kbd>, <kbd>sharper predictions</kbd>, <kbd>practical model variants</kbd>
 
 6. [DUSt3R: Geometric 3D Vision Made Easy](https://arxiv.org/abs/2312.14132), CVPR 2024  
-   Skim for: <kbd>pointmap prediction</kbd> <kbd>unconstrained image pairs</kbd>
+   Skim for: <kbd>pointmap prediction</kbd>, <kbd>unconstrained image pairs</kbd>
 
 7. [VGGT: Visual Geometry Grounded Transformer](https://arxiv.org/abs/2503.11651), CVPR 2025  
-   Skim for: <kbd>feed-forward prediction</kbd> <kbd>cameras</kbd> <kbd>depth maps</kbd> <kbd>point maps</kbd> <kbd>tracks</kbd>
+   Skim for: <kbd>feed-forward prediction</kbd>, <kbd>cameras</kbd>, <kbd>depth maps</kbd>, <kbd>point maps</kbd>, <kbd>tracks</kbd>
 
 8. [DEFOM-Stereo: Depth Foundation Model Based Stereo Matching](https://openaccess.thecvf.com/content/CVPR2025/papers/Jiang_DEFOM-Stereo_Depth_Foundation_Model_Based_Stereo_Matching_CVPR_2025_paper.pdf), CVPR 2025  
-   Skim for: <kbd>monocular depth foundation priors</kbd> <kbd>stereo matching</kbd>
+   Skim for: <kbd>monocular depth foundation priors</kbd>, <kbd>stereo matching</kbd>
 
 ### YouTube Skim Resources
 
@@ -189,33 +204,37 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- ORB-SLAM3 -> DROID-SLAM: <kbd>feature-based SLAM</kbd> and <kbd>loop closure</kbd> to <kbd>learned recurrent updates</kbd> and <kbd>dense bundle adjustment</kbd>
-- DROID-SLAM -> NICE-SLAM -> Co-SLAM: <kbd>dense bundle adjustment</kbd> to <kbd>neural implicit dense mapping</kbd> and <kbd>real-time neural SLAM</kbd>
-- Scene as Occupancy -> OccTransformer: <kbd>camera-only 3D occupancy prediction</kbd> to <kbd>BEV-style perception</kbd> and <kbd>occupancy</kbd>
-- OccTransformer -> LiDAR-based 4D Occupancy Completion and Forecasting: <kbd>occupancy</kbd> to <kbd>occupancy completion</kbd> and <kbd>future occupancy forecasting</kbd>
+1. **ORB-SLAM3 -> DROID-SLAM**
+    <kbd>feature-based SLAM</kbd> and <kbd>loop closure</kbd> to <kbd>learned recurrent updates</kbd> and <kbd>dense bundle adjustment</kbd>
+2. **DROID-SLAM -> NICE-SLAM -> Co-SLAM**
+    <kbd>dense bundle adjustment</kbd> to <kbd>neural implicit dense mapping</kbd> and <kbd>real-time neural SLAM</kbd>
+3. **Scene as Occupancy -> OccTransformer**
+    <kbd>camera-only 3D occupancy prediction</kbd> to <kbd>BEV-style perception</kbd> and <kbd>occupancy</kbd>
+4. **OccTransformer -> LiDAR-based 4D Occupancy Completion and Forecasting**
+    <kbd>occupancy</kbd> to <kbd>occupancy completion</kbd> and <kbd>future occupancy forecasting</kbd>
 
 ### Reading Order
 
 1. [ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM](https://arxiv.org/abs/2007.11898), T-RO 2021  
-   Skim for: <kbd>feature-based SLAM</kbd> <kbd>visual-inertial integration</kbd> <kbd>loop closure</kbd> <kbd>multi-map reuse</kbd>
+   Skim for: <kbd>feature-based SLAM</kbd>, <kbd>visual-inertial integration</kbd>, <kbd>loop closure</kbd>, <kbd>multi-map reuse</kbd>
 
 2. [DROID-SLAM: Deep Visual SLAM for Monocular, Stereo, and RGB-D Cameras](https://arxiv.org/abs/2108.10869), NeurIPS 2021  
-   Skim for: <kbd>learned recurrent updates</kbd> <kbd>dense bundle adjustment</kbd>
+   Skim for: <kbd>learned recurrent updates</kbd>, <kbd>dense bundle adjustment</kbd>
 
 3. [NICE-SLAM: Neural Implicit Scalable Encoding for SLAM](https://arxiv.org/abs/2112.12130), CVPR 2022  
-   Skim for: <kbd>neural implicit dense mapping</kbd> <kbd>tracking</kbd>
+   Skim for: <kbd>neural implicit dense mapping</kbd>, <kbd>tracking</kbd>
 
 4. [Co-SLAM: Joint Coordinate and Sparse Parametric Encodings for Neural Real-Time SLAM](https://arxiv.org/abs/2304.14377), CVPR 2023  
-   Skim for: <kbd>real-time neural SLAM</kbd> <kbd>hybrid encodings</kbd>
+   Skim for: <kbd>real-time neural SLAM</kbd>, <kbd>hybrid encodings</kbd>
 
 5. [Scene as Occupancy](https://arxiv.org/abs/2306.02851), ICCV 2023  
    Skim for: <kbd>camera-only 3D occupancy prediction</kbd>
 
 6. [OccTransformer: Improving BEVFormer for 3D Camera-Only Occupancy Prediction](https://arxiv.org/abs/2402.18140), 2024  
-   Skim for: <kbd>BEV-style perception</kbd> <kbd>occupancy</kbd>
+   Skim for: <kbd>BEV-style perception</kbd>, <kbd>occupancy</kbd>
 
 7. [LiDAR-based 4D Occupancy Completion and Forecasting](https://arxiv.org/abs/2310.11239), 2023  
-   Skim for: <kbd>occupancy completion</kbd> <kbd>future occupancy forecasting</kbd>
+   Skim for: <kbd>occupancy completion</kbd>, <kbd>future occupancy forecasting</kbd>
 
 ### YouTube Skim Resources
 
@@ -235,24 +254,28 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- Structure-from-Motion Revisited -> NeRF: <kbd>classical SfM pipeline</kbd> and <kbd>COLMAP</kbd> to <kbd>volumetric rendering</kbd>
-- NeRF -> Instant-NGP: <kbd>positional encoding</kbd> and <kbd>view synthesis</kbd> to <kbd>hash grid encoding</kbd> and <kbd>fast neural scene fitting</kbd>
-- Instant-NGP -> 3D Gaussian Splatting: <kbd>fast neural scene fitting</kbd> to <kbd>explicit anisotropic Gaussians</kbd> and <kbd>differentiable rasterization</kbd>
-- 3D Gaussian Splatting -> pixelSplat -> DUSt3R -> VGGT: <kbd>feed-forward Gaussian splat prediction</kbd> to <kbd>pointmap prediction</kbd> and <kbd>generalist 3D geometry</kbd>
+1. **Structure-from-Motion Revisited -> NeRF**
+    <kbd>classical SfM pipeline</kbd> and <kbd>COLMAP</kbd> to <kbd>volumetric rendering</kbd>
+2. **NeRF -> Instant-NGP**
+    <kbd>positional encoding</kbd> and <kbd>view synthesis</kbd> to <kbd>hash grid encoding</kbd> and <kbd>fast neural scene fitting</kbd>
+3. **Instant-NGP -> 3D Gaussian Splatting**
+    <kbd>fast neural scene fitting</kbd> to <kbd>explicit anisotropic Gaussians</kbd> and <kbd>differentiable rasterization</kbd>
+4. **3D Gaussian Splatting -> pixelSplat -> DUSt3R -> VGGT**
+    <kbd>feed-forward Gaussian splat prediction</kbd> to <kbd>pointmap prediction</kbd> and <kbd>generalist 3D geometry</kbd>
 
 ### Reading Order
 
 1. [Structure-from-Motion Revisited](https://demuc.de/papers/schoenberger2016sfm.pdf), CVPR 2016  
-   Skim for: <kbd>classical SfM pipeline</kbd> <kbd>COLMAP</kbd>
+   Skim for: <kbd>classical SfM pipeline</kbd>, <kbd>COLMAP</kbd>
 
 2. [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://arxiv.org/abs/2003.08934), ECCV 2020  
-   Skim for: <kbd>volumetric rendering</kbd> <kbd>positional encoding</kbd> <kbd>view synthesis</kbd>
+   Skim for: <kbd>volumetric rendering</kbd>, <kbd>positional encoding</kbd>, <kbd>view synthesis</kbd>
 
 3. [Instant Neural Graphics Primitives with a Multiresolution Hash Encoding](https://arxiv.org/abs/2201.05989), SIGGRAPH 2022  
-   Skim for: <kbd>hash grid encoding</kbd> <kbd>fast neural scene fitting</kbd>
+   Skim for: <kbd>hash grid encoding</kbd>, <kbd>fast neural scene fitting</kbd>
 
 4. [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://arxiv.org/abs/2308.04079), SIGGRAPH 2023  
-   Skim for: <kbd>explicit anisotropic Gaussians</kbd> <kbd>differentiable rasterization</kbd>
+   Skim for: <kbd>explicit anisotropic Gaussians</kbd>, <kbd>differentiable rasterization</kbd>
 
 5. [pixelSplat: 3D Gaussian Splats from Image Pairs for Scalable Generalizable 3D Reconstruction](https://arxiv.org/abs/2312.12337), CVPR 2024  
    Skim for: <kbd>feed-forward Gaussian splat prediction</kbd>
@@ -261,7 +284,7 @@ Last updated: 2026-06-02
    Skim for: <kbd>reconstruction without calibrated cameras</kbd>
 
 7. [VGGT: Visual Geometry Grounded Transformer](https://arxiv.org/abs/2503.11651), CVPR 2025  
-   Skim for: <kbd>generalist 3D geometry</kbd> <kbd>foundation model</kbd>
+   Skim for: <kbd>generalist 3D geometry</kbd>, <kbd>foundation model</kbd>
 
 ### YouTube Skim Resources
 
@@ -281,39 +304,43 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- ViT -> CLIP: <kbd>ViT patch tokens</kbd> and <kbd>scale</kbd> to <kbd>image-text contrastive learning</kbd>
-- CLIP -> MAE -> DINOv2: <kbd>zero-shot transfer</kbd> to <kbd>masked image modeling</kbd> and <kbd>self-supervised features</kbd>
-- DINOv2 -> SigLIP -> SAM: <kbd>dense transfer</kbd> and <kbd>scalable image-text loss design</kbd> to <kbd>promptable segmentation</kbd>
-- SAM -> SAM 2 -> VideoPrism -> InternVL: <kbd>image-video segmentation</kbd> to <kbd>video foundation representation learning</kbd> and <kbd>VLM alignment</kbd>
+1. **ViT -> CLIP**
+    <kbd>ViT patch tokens</kbd> and <kbd>scale</kbd> to <kbd>image-text contrastive learning</kbd>
+2. **CLIP -> MAE -> DINOv2**
+    <kbd>zero-shot transfer</kbd> to <kbd>masked image modeling</kbd> and <kbd>self-supervised features</kbd>
+3. **DINOv2 -> SigLIP -> SAM**
+    <kbd>dense transfer</kbd> and <kbd>scalable image-text loss design</kbd> to <kbd>promptable segmentation</kbd>
+4. **SAM -> SAM 2 -> VideoPrism -> InternVL**
+    <kbd>image-video segmentation</kbd> to <kbd>video foundation representation learning</kbd> and <kbd>VLM alignment</kbd>
 
 ### Reading Order
 
 1. [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929), ICLR 2021  
-   Skim for: <kbd>ViT patch tokens</kbd> <kbd>scale</kbd> <kbd>inductive-bias tradeoffs</kbd>
+   Skim for: <kbd>ViT patch tokens</kbd>, <kbd>scale</kbd>, <kbd>inductive-bias tradeoffs</kbd>
 
 2. [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020), ICML 2021  
-   Skim for: <kbd>CLIP</kbd> <kbd>image-text contrastive learning</kbd> <kbd>zero-shot transfer</kbd>
+   Skim for: <kbd>CLIP</kbd>, <kbd>image-text contrastive learning</kbd>, <kbd>zero-shot transfer</kbd>
 
 3. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/abs/2111.06377), CVPR 2022  
-   Skim for: <kbd>masked image modeling</kbd> <kbd>asymmetric encoder-decoder design</kbd>
+   Skim for: <kbd>masked image modeling</kbd>, <kbd>asymmetric encoder-decoder design</kbd>
 
 4. [DINOv2: Learning Robust Visual Features without Supervision](https://arxiv.org/abs/2304.07193), TMLR 2024  
-   Skim for: <kbd>self-supervised features</kbd> <kbd>curated data</kbd> <kbd>dense transfer</kbd>
+   Skim for: <kbd>self-supervised features</kbd>, <kbd>curated data</kbd>, <kbd>dense transfer</kbd>
 
 5. [Sigmoid Loss for Language Image Pre-Training](https://arxiv.org/abs/2303.15343), ICCV 2023  
-   Skim for: <kbd>SigLIP</kbd> <kbd>scalable image-text loss design</kbd>
+   Skim for: <kbd>SigLIP</kbd>, <kbd>scalable image-text loss design</kbd>
 
 6. [Segment Anything](https://arxiv.org/abs/2304.02643), ICCV 2023  
-   Skim for: <kbd>promptable segmentation</kbd> <kbd>foundation task</kbd>
+   Skim for: <kbd>promptable segmentation</kbd>, <kbd>foundation task</kbd>
 
 7. [SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714), 2024  
-   Skim for: <kbd>image-video segmentation</kbd> <kbd>memory</kbd>
+   Skim for: <kbd>image-video segmentation</kbd>, <kbd>memory</kbd>
 
 8. [VideoPrism: A Foundational Visual Encoder for Video Understanding](https://arxiv.org/abs/2402.13217), 2024  
    Skim for: <kbd>video foundation representation learning</kbd>
 
 9. [InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks](https://arxiv.org/abs/2312.14238), CVPR 2024  
-   Skim for: <kbd>vision encoder scaling</kbd> <kbd>VLM alignment</kbd>
+   Skim for: <kbd>vision encoder scaling</kbd>, <kbd>VLM alignment</kbd>
 
 ### YouTube Skim Resources
 
@@ -336,30 +363,34 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- End-to-end Learning of Driving Models -> UniAD: <kbd>large-scale imitation learning</kbd> to <kbd>perception</kbd>, <kbd>prediction</kbd>, <kbd>mapping</kbd>, and <kbd>planning</kbd>
-- UniAD -> Diffusion Policy: <kbd>planning</kbd> to <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, and <kbd>multimodal action distributions</kbd>
-- Diffusion Policy -> RT-2 -> OpenVLA: <kbd>robot actions</kbd> as <kbd>language-model tokens</kbd> to <kbd>open VLA training</kbd>
-- OpenVLA -> OpenDriveVLA -> ORION: <kbd>VLA framing</kbd> to <kbd>autonomous driving</kbd> and <kbd>language-instructed driving action generation</kbd>
+1. **End-to-end Learning of Driving Models -> UniAD**
+    <kbd>large-scale imitation learning</kbd> to <kbd>perception</kbd>, <kbd>prediction</kbd>, <kbd>mapping</kbd>, and <kbd>planning</kbd>
+2. **UniAD -> Diffusion Policy**
+    <kbd>planning</kbd> to <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, and <kbd>multimodal action distributions</kbd>
+3. **Diffusion Policy -> RT-2 -> OpenVLA**
+    <kbd>robot actions</kbd> as <kbd>language-model tokens</kbd> to <kbd>open VLA training</kbd>
+4. **OpenVLA -> OpenDriveVLA -> ORION**
+    <kbd>VLA framing</kbd> to <kbd>autonomous driving</kbd> and <kbd>language-instructed driving action generation</kbd>
 
 ### Reading Order
 
 1. [End-to-end Learning of Driving Models from Large-scale Video Datasets](https://arxiv.org/abs/1612.01079), CVPR 2017  
-   Skim for: <kbd>large-scale imitation learning</kbd> <kbd>driving</kbd>
+   Skim for: <kbd>large-scale imitation learning</kbd>, <kbd>driving</kbd>
 
 2. [Planning-Oriented Autonomous Driving](https://openaccess.thecvf.com/content/CVPR2023/html/Hu_Planning-Oriented_Autonomous_Driving_CVPR_2023_paper.html), CVPR 2023  
-   Skim for: <kbd>UniAD</kbd> <kbd>perception</kbd> <kbd>prediction</kbd> <kbd>mapping</kbd> <kbd>planning</kbd>
+   Skim for: <kbd>UniAD</kbd>, <kbd>perception</kbd>, <kbd>prediction</kbd>, <kbd>mapping</kbd>, <kbd>planning</kbd>
 
 3. [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion](https://arxiv.org/abs/2303.04137), RSS 2023 / IJRR 2024  
-   Skim for: <kbd>action diffusion</kbd> <kbd>receding-horizon control</kbd> <kbd>multimodal action distributions</kbd>
+   Skim for: <kbd>action diffusion</kbd>, <kbd>receding-horizon control</kbd>, <kbd>multimodal action distributions</kbd>
 
 4. [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/abs/2307.15818), CoRL 2023  
-   Skim for: <kbd>robot actions</kbd> <kbd>language-model tokens</kbd>
+   Skim for: <kbd>robot actions</kbd>, <kbd>language-model tokens</kbd>
 
 5. [OpenVLA: An Open-Source Vision-Language-Action Model](https://arxiv.org/abs/2406.09246), CoRL 2024  
-   Skim for: <kbd>open VLA training</kbd> <kbd>Open X-Embodiment data</kbd> <kbd>parameter-efficient adaptation</kbd>
+   Skim for: <kbd>open VLA training</kbd>, <kbd>Open X-Embodiment data</kbd>, <kbd>parameter-efficient adaptation</kbd>
 
 6. [OpenDriveVLA: Towards End-to-End Autonomous Driving with Large Vision Language Action Model](https://arxiv.org/abs/2503.23463), 2025  
-   Skim for: <kbd>VLA framing</kbd> <kbd>autonomous driving</kbd>
+   Skim for: <kbd>VLA framing</kbd>, <kbd>autonomous driving</kbd>
 
 7. [ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation](https://arxiv.org/abs/2503.19755), 2025  
    Skim for: <kbd>language-instructed driving action generation</kbd>
@@ -382,39 +413,43 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- DDPM -> Latent Diffusion: <kbd>diffusion objective</kbd> and <kbd>denoising process</kbd> to <kbd>latent diffusion</kbd>
-- Latent Diffusion -> Video Diffusion -> Stable Video Diffusion: <kbd>cross-attention conditioning</kbd> to <kbd>video diffusion</kbd>, <kbd>image-to-video</kbd>, and <kbd>text-to-video scaling</kbd>
-- DreamerV3 -> Genie: <kbd>latent imagination</kbd> and <kbd>control</kbd> to <kbd>action-controllable environments</kbd>
-- Genie -> GAIA-1 -> GAIA-2 -> DrivingWorld: <kbd>generative driving simulation</kbd> to <kbd>controllable multi-view generation</kbd> and <kbd>video-token world modeling</kbd>
+1. **DDPM -> Latent Diffusion**
+    <kbd>diffusion objective</kbd> and <kbd>denoising process</kbd> to <kbd>latent diffusion</kbd>
+2. **Latent Diffusion -> Video Diffusion -> Stable Video Diffusion**
+    <kbd>cross-attention conditioning</kbd> to <kbd>video diffusion</kbd>, <kbd>image-to-video</kbd>, and <kbd>text-to-video scaling</kbd>
+3. **DreamerV3 -> Genie**
+    <kbd>latent imagination</kbd> and <kbd>control</kbd> to <kbd>action-controllable environments</kbd>
+4. **Genie -> GAIA-1 -> GAIA-2 -> DrivingWorld**
+    <kbd>generative driving simulation</kbd> to <kbd>controllable multi-view generation</kbd> and <kbd>video-token world modeling</kbd>
 
 ### Reading Order
 
 1. [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239), NeurIPS 2020  
-   Skim for: <kbd>diffusion objective</kbd> <kbd>denoising process</kbd>
+   Skim for: <kbd>diffusion objective</kbd>, <kbd>denoising process</kbd>
 
 2. [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752), CVPR 2022  
-   Skim for: <kbd>latent diffusion</kbd> <kbd>cross-attention conditioning</kbd>
+   Skim for: <kbd>latent diffusion</kbd>, <kbd>cross-attention conditioning</kbd>
 
 3. [Video Diffusion Models](https://arxiv.org/abs/2204.03458), NeurIPS 2022  
    Skim for: <kbd>video diffusion</kbd>
 
 4. [Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets](https://arxiv.org/abs/2311.15127), 2023  
-   Skim for: <kbd>image-to-video</kbd> <kbd>text-to-video scaling</kbd>
+   Skim for: <kbd>image-to-video</kbd>, <kbd>text-to-video scaling</kbd>
 
 5. [Mastering Diverse Domains through World Models](https://arxiv.org/abs/2301.04104), 2023  
-   Skim for: <kbd>DreamerV3</kbd> <kbd>latent imagination</kbd> <kbd>control</kbd>
+   Skim for: <kbd>DreamerV3</kbd>, <kbd>latent imagination</kbd>, <kbd>control</kbd>
 
 6. [Genie: Generative Interactive Environments](https://arxiv.org/abs/2402.15391), ICML 2024  
-   Skim for: <kbd>action-controllable environments</kbd> <kbd>unlabeled videos</kbd>
+   Skim for: <kbd>action-controllable environments</kbd>, <kbd>unlabeled videos</kbd>
 
 7. [GAIA-1: A Generative World Model for Autonomous Driving](https://arxiv.org/abs/2309.17080), 2023  
-   Skim for: <kbd>generative driving simulation</kbd> <kbd>video data</kbd>
+   Skim for: <kbd>generative driving simulation</kbd>, <kbd>video data</kbd>
 
 8. [GAIA-2: A Controllable Multi-View Generative World Model for Autonomous Driving](https://arxiv.org/abs/2503.20523), 2025  
-   Skim for: <kbd>controllable multi-view generation</kbd> <kbd>driving world generation</kbd>
+   Skim for: <kbd>controllable multi-view generation</kbd>, <kbd>driving world generation</kbd>
 
 9. [DrivingWorld: Constructing World Model for Autonomous Driving via Video GPT](https://arxiv.org/abs/2412.19505), 2024  
-   Skim for: <kbd>video-token world modeling</kbd> <kbd>driving</kbd>
+   Skim for: <kbd>video-token world modeling</kbd>, <kbd>driving</kbd>
 
 ### YouTube Skim Resources
 
@@ -437,36 +472,40 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-- Explaining and Harnessing Adversarial Examples -> PGD adversarial training: <kbd>adversarial-example setup</kbd> to <kbd>robust optimization</kbd>
-- Domain-Adversarial Training -> Deep Ensembles -> Bayesian uncertainty: <kbd>domain-invariant representations</kbd> to <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, and <kbd>epistemic uncertainty</kbd>
-- Bayesian uncertainty -> Tent: <kbd>aleatoric uncertainty</kbd> and <kbd>dense prediction</kbd> to <kbd>entropy minimization</kbd> and <kbd>batch-norm adaptation</kbd>
-- Tent -> RobustBench -> WILDS: <kbd>test time</kbd> adaptation to <kbd>standardized robustness evaluation</kbd> and <kbd>realistic domain shift</kbd>
+1. **Explaining and Harnessing Adversarial Examples -> PGD adversarial training**
+    <kbd>adversarial-example setup</kbd> to <kbd>robust optimization</kbd>
+2. **Domain-Adversarial Training -> Deep Ensembles -> Bayesian uncertainty**
+    <kbd>domain-invariant representations</kbd> to <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, and <kbd>epistemic uncertainty</kbd>
+3. **Bayesian uncertainty -> Tent**
+    <kbd>aleatoric uncertainty</kbd> and <kbd>dense prediction</kbd> to <kbd>entropy minimization</kbd> and <kbd>batch-norm adaptation</kbd>
+4. **Tent -> RobustBench -> WILDS**
+    <kbd>test time</kbd> adaptation to <kbd>standardized robustness evaluation</kbd> and <kbd>realistic domain shift</kbd>
 
 ### Reading Order
 
 1. [Explaining and Harnessing Adversarial Examples](https://arxiv.org/abs/1412.6572), ICLR 2015  
-   Skim for: <kbd>FGSM</kbd> <kbd>adversarial-example setup</kbd>
+   Skim for: <kbd>FGSM</kbd>, <kbd>adversarial-example setup</kbd>
 
 2. [Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/abs/1706.06083), ICLR 2018  
-   Skim for: <kbd>PGD adversarial training</kbd> <kbd>robust optimization</kbd>
+   Skim for: <kbd>PGD adversarial training</kbd>, <kbd>robust optimization</kbd>
 
 3. [Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818), JMLR 2016  
-   Skim for: <kbd>gradient reversal</kbd> <kbd>domain-invariant representations</kbd>
+   Skim for: <kbd>gradient reversal</kbd>, <kbd>domain-invariant representations</kbd>
 
 4. [Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles](https://papers.neurips.cc/paper/7219-simple-and-scalable-predictive-uncertainty-estimation-using-deep-ensembles), NeurIPS 2017  
-   Skim for: <kbd>ensemble uncertainty</kbd> <kbd>calibration</kbd> <kbd>OOD behavior</kbd>
+   Skim for: <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, <kbd>OOD behavior</kbd>
 
 5. [What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?](https://arxiv.org/abs/1703.04977), NeurIPS 2017  
-   Skim for: <kbd>epistemic uncertainty</kbd> <kbd>aleatoric uncertainty</kbd> <kbd>dense prediction</kbd>
+   Skim for: <kbd>epistemic uncertainty</kbd>, <kbd>aleatoric uncertainty</kbd>, <kbd>dense prediction</kbd>
 
 6. [Tent: Fully Test-time Adaptation by Entropy Minimization](https://arxiv.org/abs/2006.10726), ICLR 2021  
-   Skim for: <kbd>entropy minimization</kbd> <kbd>batch-norm adaptation</kbd> <kbd>test time</kbd>
+   Skim for: <kbd>entropy minimization</kbd>, <kbd>batch-norm adaptation</kbd>, <kbd>test time</kbd>
 
 7. [RobustBench: a standardized adversarial robustness benchmark](https://arxiv.org/abs/2010.09670), NeurIPS 2021  
-   Skim for: <kbd>standardized robustness evaluation</kbd> <kbd>attack pitfalls</kbd>
+   Skim for: <kbd>standardized robustness evaluation</kbd>, <kbd>attack pitfalls</kbd>
 
 8. [WILDS: A Benchmark of in-the-Wild Distribution Shifts](https://arxiv.org/abs/2012.07421), ICML 2021  
-   Skim for: <kbd>realistic domain shift</kbd> <kbd>benchmark design</kbd>
+   Skim for: <kbd>realistic domain shift</kbd>, <kbd>benchmark design</kbd>
 
 ### YouTube Skim Resources
 
