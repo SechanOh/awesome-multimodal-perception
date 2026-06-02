@@ -4,41 +4,29 @@ A reading roadmap for skimming essential computer vision papers across modern pe
 
 Last updated: 2026-06-02
 
-## How To Skim
+## Table of Contents
 
-For each paper, read in this order:
+- [1. Object Detection](#1-object-detection)
+- [2. Segmentation](#2-segmentation)
+- [3. Tracking](#3-tracking)
+- [4. Depth, Geometry, and Optical Flow](#4-depth-geometry-and-optical-flow)
+- [5. SLAM, Odometry, and Occupancy](#5-slam-odometry-and-occupancy)
+- [6. 3D Reconstruction](#6-3d-reconstruction)
+- [7. Foundation Models](#7-foundation-models)
+- [8. End-to-End Autonomous Driving and Robotics Models](#8-end-to-end-autonomous-driving-and-robotics-models)
+- [9. Generative Vision and World Models](#9-generative-vision-and-world-models)
+- [10. Robustness, Uncertainty, and Domain Adaptation](#10-robustness-uncertainty-and-domain-adaptation)
+- [Four-Week Skimming Plan](#four-week-skimming-plan)
+- [Minimal 20-Paper Route](#minimal-20-paper-route)
 
-1. Abstract
-2. Figure 1 and method overview
-3. Main results table
-4. Failure cases or limitations
-5. Related work only after the core idea is clear
-
-The goal is to build a map of the field first. Do not try to fully reproduce proofs, implementation details, or every ablation on the first pass.
-
-## Global Reading Order
-
-1. Foundation Models
-2. Object Detection, Tracking, and Segmentation
-3. Depth, Geometry, and Optical Flow
-4. SLAM, Odometry, and Occupancy
-5. 3D Reconstruction
-6. End-to-End Autonomous Driving and Robotics Models
-7. Generative Vision and World Models
-8. Robustness, Uncertainty, and Domain Adaptation
-
-This order works because recent detection, segmentation, depth, robotics, and world-model papers increasingly assume familiarity with ViT, CLIP-style image-text pretraining, self-supervised visual features, and promptable segmentation.
-
-## 1. Object Detection, Tracking, and Segmentation
+## 1. Object Detection
 
 ### Background Concepts
 
 - CNN backbones, feature pyramids, anchors, non-maximum suppression
 - Two-stage vs one-stage detection
 - Transformer object queries and bipartite matching
-- Semantic, instance, and panoptic segmentation
 - Open-vocabulary detection and language grounding
-- Video object segmentation and multi-object tracking
 
 ### Reading Order
 
@@ -63,36 +51,97 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 7. [Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499), 2023  
    Skim for: text-conditioned open-set detection.
 
-8. [Mask R-CNN](https://arxiv.org/abs/1703.06870), ICCV 2017  
-   Skim for: RoIAlign and adding mask prediction to instance detection.
-
-9. [Masked-attention Mask Transformer for Universal Image Segmentation](https://arxiv.org/abs/2112.01527), CVPR 2022  
-   Skim for: Mask2Former and unified semantic, instance, and panoptic segmentation.
-
-10. [Segment Anything](https://arxiv.org/abs/2304.02643), ICCV 2023  
-    Skim for: promptable segmentation, SA-1B, and ambiguity-aware mask prediction.
-
-11. [SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714), 2024  
-    Skim for: memory-based promptable segmentation over video.
-
-12. [ByteTrack: Multi-Object Tracking by Associating Every Detection Box](https://arxiv.org/abs/2110.06864), ECCV 2022  
-    Skim for: association with low-confidence detection boxes.
-
 ### YouTube Skim Resources
 
 - [Stanford CS231n 2025 Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)  
-  Best first video for detection and segmentation background. It covers the task taxonomy and core model families.
+  Use the detection parts first. It covers detection task setup, R-CNN-style models, and modern detector families.
 
 - [Stanford CS231n 2017 Lecture 11: Detection and Segmentation](https://www.youtube.com/watch?v=nDPWywWRIRo)  
-  Older but useful for R-CNN, Faster R-CNN, and Mask R-CNN foundations.
-
-- [Segment Anything paper explanation search](https://www.youtube.com/results?search_query=Segment+Anything+paper+explained)  
-  Use this after reading SAM. Prefer explanations that show the prompt encoder, mask decoder, and data engine.
+  Older but useful for R-CNN and Faster R-CNN foundations.
 
 - [DETR paper explanation search](https://www.youtube.com/results?search_query=DETR+paper+explained+object+detection+transformer)  
   Use this if Hungarian matching and object queries are unclear after the paper.
 
-## 2. Depth, Geometry, and Optical Flow
+## 2. Segmentation
+
+### Background Concepts
+
+- Semantic, instance, and panoptic segmentation
+- Mask heads and RoIAlign
+- Mask classification
+- Promptable segmentation
+- Video object segmentation
+
+### Reading Order
+
+1. [Mask R-CNN](https://arxiv.org/abs/1703.06870), ICCV 2017  
+   Skim for: RoIAlign and adding mask prediction to instance detection.
+
+2. [Masked-attention Mask Transformer for Universal Image Segmentation](https://arxiv.org/abs/2112.01527), CVPR 2022  
+   Skim for: Mask2Former and unified semantic, instance, and panoptic segmentation.
+
+3. [Segment Anything](https://arxiv.org/abs/2304.02643), ICCV 2023  
+   Skim for: promptable segmentation, SA-1B, and ambiguity-aware mask prediction.
+
+4. [SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714), 2024  
+   Skim for: memory-based promptable segmentation over video.
+
+### YouTube Skim Resources
+
+- [Stanford CS231n 2025 Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)  
+  Use the segmentation parts for task taxonomy, dense prediction, and mask-based outputs.
+
+- [Stanford CS231n 2017 Lecture 11: Detection and Segmentation](https://www.youtube.com/watch?v=nDPWywWRIRo)  
+  Useful for Mask R-CNN foundations.
+
+- [Segment Anything paper explanation search](https://www.youtube.com/results?search_query=Segment+Anything+paper+explained)  
+  Use this after reading SAM. Prefer explanations that show the prompt encoder, mask decoder, and data engine.
+
+## 3. Tracking
+
+### Background Concepts
+
+- Single-object tracking vs multi-object tracking
+- Tracking-by-detection
+- Data association
+- Motion models and appearance embeddings
+- Video object segmentation as mask tracking
+
+### Reading Order
+
+1. [Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763), ICIP 2016  
+   Skim for: Kalman filtering, Hungarian matching, and tracking-by-detection.
+
+2. [Simple Online and Realtime Tracking with a Deep Association Metric](https://arxiv.org/abs/1703.07402), ICIP 2017  
+   Skim for: appearance embeddings for robust association.
+
+3. [Tracktor++: Tracking without Bells and Whistles](https://arxiv.org/abs/1903.05625), ICCV 2019  
+   Skim for: reusing detector regression for tracking.
+
+4. [CenterTrack: Tracking Objects as Points](https://arxiv.org/abs/2004.01177), ECCV 2020  
+   Skim for: joint detection and tracking with object centers.
+
+5. [TrackFormer: Multi-Object Tracking with Transformers](https://arxiv.org/abs/2101.02702), CVPR 2022  
+   Skim for: transformer queries extended from detection to tracking.
+
+6. [ByteTrack: Multi-Object Tracking by Associating Every Detection Box](https://arxiv.org/abs/2110.06864), ECCV 2022  
+   Skim for: association with low-confidence detection boxes.
+
+7. [SAM 2: Segment Anything in Images and Videos](https://arxiv.org/abs/2408.00714), 2024  
+   Skim for: promptable video object tracking through segmentation memory.
+
+### YouTube Skim Resources
+
+- [Multi-object tracking lecture search](https://www.youtube.com/results?search_query=multi+object+tracking+computer+vision+lecture+SORT+DeepSORT)  
+  Start here for SORT, DeepSORT, Kalman filters, and data association.
+
+- [ByteTrack paper explanation search](https://www.youtube.com/results?search_query=ByteTrack+paper+explained+multi+object+tracking)  
+  Use this after SORT and DeepSORT.
+
+- [TrackFormer paper explanation search](https://www.youtube.com/results?search_query=TrackFormer+multi+object+tracking+transformer+paper+explained)  
+  Use this to connect DETR-style queries with tracking.
+
+## 4. Depth, Geometry, and Optical Flow
 
 ### Background Concepts
 
@@ -143,7 +192,7 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 - [DUSt3R and VGGT explanation search](https://www.youtube.com/results?search_query=DUSt3R+VGGT+visual+geometry+grounded+transformer+explained)  
   These papers are newer, so search results are more useful than relying on one canonical lecture.
 
-## 3. SLAM, Odometry, and Occupancy
+## 5. SLAM, Odometry, and Occupancy
 
 ### Background Concepts
 
@@ -191,7 +240,7 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 - [NVIDIA DRIVE Labs occupancy prediction video search](https://www.youtube.com/results?search_query=NVIDIA+DRIVE+Labs+occupancy+prediction+autonomous+vehicle)  
   Useful for the autonomous-driving occupancy framing, even though it is less paper-specific.
 
-## 4. 3D Reconstruction
+## 6. 3D Reconstruction
 
 ### Background Concepts
 
@@ -240,7 +289,7 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 - [VGGT 3D reconstruction explanation search](https://www.youtube.com/results?search_query=VGGT+Visual+Geometry+Grounded+Transformer+3D+reconstruction+explained)  
   Use this after DUSt3R and 3D Gaussian Splatting.
 
-## 5. Foundation Models
+## 7. Foundation Models
 
 ### Background Concepts
 
@@ -298,7 +347,7 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 - [SAM and SAM 2 explanation search](https://www.youtube.com/results?search_query=SAM+2+Segment+Anything+paper+explained)  
   Use this after reading SAM to connect promptable segmentation with video memory.
 
-## 6. End-to-End Autonomous Driving and Robotics Models
+## 8. End-to-End Autonomous Driving and Robotics Models
 
 ### Background Concepts
 
@@ -347,7 +396,7 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 - [OpenVLA explanation search](https://www.youtube.com/results?search_query=OpenVLA+vision+language+action+model+paper+explained)  
   Use this for the open-source VLA recipe and fine-tuning details.
 
-## 7. Generative Vision and World Models
+## 9. Generative Vision and World Models
 
 ### Background Concepts
 
@@ -405,7 +454,7 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 - [GAIA driving world model explanation search](https://www.youtube.com/results?search_query=GAIA+generative+world+model+autonomous+driving+explained)  
   Use this for the driving-specific world-model framing.
 
-## 8. Robustness, Uncertainty, and Domain Adaptation
+## 10. Robustness, Uncertainty, and Domain Adaptation
 
 ### Background Concepts
 
@@ -459,13 +508,13 @@ This order works because recent detection, segmentation, depth, robotics, and wo
 
 ## Four-Week Skimming Plan
 
-### Week 1: Foundation Models, Detection, and Segmentation
+### Week 1: Foundation Models, Detection, Segmentation, and Tracking
 
 - Day 1: ViT, CLIP, MAE
 - Day 2: DINOv2, SAM, SAM 2
 - Day 3: Faster R-CNN, YOLOv3, DETR
 - Day 4: Deformable DETR, DINO, Grounding DINO
-- Day 5: Mask R-CNN, Mask2Former, ByteTrack
+- Day 5: Mask R-CNN, Mask2Former, SAM, ByteTrack
 
 ### Week 2: Geometry and Reconstruction
 
@@ -515,20 +564,3 @@ If time is limited, read only these first:
 18. RT-2
 19. OpenVLA
 20. Tent
-
-## Paper Note Template
-
-```markdown
-## Paper
-
-- Problem:
-- Key idea:
-- What changed after this paper:
-- Inputs and outputs:
-- Architecture or objective:
-- Datasets and metrics:
-- Strongest result:
-- Main limitation:
-- Best related paper to read next:
-- Relevance to my work:
-```
