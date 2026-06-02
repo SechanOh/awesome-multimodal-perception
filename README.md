@@ -12,17 +12,16 @@ Last updated: 2026-06-02
 - [2. Segmentation and Scene Parsing](#2-segmentation-and-scene-parsing)
 - [3. Object Tracking and Multi-Object Tracking](#3-object-tracking-and-multi-object-tracking)
 - [4. Depth Estimation and Stereo](#4-depth-estimation-and-stereo)
-- [5. Optical Flow and Motion Correspondence](#5-optical-flow-and-motion-correspondence)
-- [6. Multiple View Geometry and 3D Vision](#6-multiple-view-geometry-and-3d-vision)
-- [7. 3D Object Detection and BEV Perception](#7-3d-object-detection-and-bev-perception)
-- [8. SLAM, Odometry, and Occupancy](#8-slam-odometry-and-occupancy)
-- [9. Motion Forecasting](#9-motion-forecasting)
-- [10. Planning and Control](#10-planning-and-control)
-- [11. Robot Learning](#11-robot-learning)
-- [12. Foundation Models for Vision and Robotics](#12-foundation-models-for-vision-and-robotics)
-- [13. End-to-End Autonomous Driving](#13-end-to-end-autonomous-driving)
-- [14. Generative Vision and World Models](#14-generative-vision-and-world-models)
-- [15. Robustness, Uncertainty, and Safety](#15-robustness-uncertainty-and-safety)
+- [5. Multiple View Geometry and 3D Vision](#5-multiple-view-geometry-and-3d-vision)
+- [6. 3D Object Detection and BEV Perception](#6-3d-object-detection-and-bev-perception)
+- [7. SLAM, Odometry, and Occupancy](#7-slam-odometry-and-occupancy)
+- [8. Motion Forecasting](#8-motion-forecasting)
+- [9. Planning and Control](#9-planning-and-control)
+- [10. Robot Learning](#10-robot-learning)
+- [11. Foundation Models for Vision and Robotics](#11-foundation-models-for-vision-and-robotics)
+- [12. End-to-End Autonomous Driving](#12-end-to-end-autonomous-driving)
+- [13. Generative Vision and World Models](#13-generative-vision-and-world-models)
+- [14. Robustness, Uncertainty, and Safety](#14-robustness-uncertainty-and-safety)
 
 ## 1. 2D Object Detection
 
@@ -193,46 +192,7 @@ Last updated: 2026-06-02
 - [Stereo matching lecture search](https://www.youtube.com/results?search_query=stereo+matching+depth+estimation+computer+vision+lecture)  
   Use this before PSMNet or RAFT-Stereo.
 
-## 5. Optical Flow and Motion Correspondence
-
-### Field Evolution
-
-| **Papers** | **Shift** |
-|---|---|
-| Lucas-Kanade / Horn-Schunck | <kbd>local image alignment</kbd> ↔ <kbd>global smoothness-regularized flow</kbd> |
-| Lucas-Kanade / Horn-Schunck → FlowNet | <kbd>hand-designed optimization</kbd> → <kbd>end-to-end learned optical flow</kbd> |
-| FlowNet → PWC-Net | <kbd>direct CNN regression</kbd> → <kbd>pyramid, warping, and cost volume</kbd> |
-| PWC-Net → RAFT → GMFlow | <kbd>coarse-to-fine matching</kbd> → <kbd>all-pairs correlation</kbd> → <kbd>global matching</kbd> |
-
-### Reading Order
-
-1. [An Iterative Image Registration Technique with an Application to Stereo Vision](https://www.ri.cmu.edu/pub_files/pub3/lucas_bruce_d_1981_2/lucas_bruce_d_1981_2.pdf), IJCAI 1981  
-   Skim for: <kbd>Lucas-Kanade</kbd>, <kbd>local motion</kbd>, <kbd>image alignment</kbd>
-
-2. [Determining Optical Flow](https://people.csail.mit.edu/bkph/papers/Optical_Flow_OPT.pdf), Artificial Intelligence 1981  
-   Skim for: <kbd>Horn-Schunck</kbd>, <kbd>brightness constancy</kbd>, <kbd>smoothness prior</kbd>
-
-3. [FlowNet: Learning Optical Flow with Convolutional Networks](https://arxiv.org/abs/1504.06852), ICCV 2015  
-   Skim for: <kbd>learned optical flow</kbd>, <kbd>synthetic training data</kbd>, <kbd>end-to-end flow prediction</kbd>
-
-4. [PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume](https://arxiv.org/abs/1709.02371), CVPR 2018  
-   Skim for: <kbd>pyramid</kbd>, <kbd>warping</kbd>, <kbd>cost volume</kbd>
-
-5. [RAFT: Recurrent All-Pairs Field Transforms for Optical Flow](https://arxiv.org/abs/2003.12039), ECCV 2020  
-   Skim for: <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd>
-
-6. [GMFlow: Learning Optical Flow via Global Matching](https://arxiv.org/abs/2111.13680), CVPR 2022  
-   Skim for: <kbd>transformer-style global matching</kbd>, <kbd>correspondence</kbd>
-
-### YouTube Skim Resources
-
-- [Optical flow lecture search](https://www.youtube.com/results?search_query=optical+flow+computer+vision+lecture+Lucas+Kanade+Horn+Schunck+RAFT)  
-  Watch a classical optical-flow lecture first, then RAFT-specific explanations.
-
-- [RAFT paper explanation search](https://www.youtube.com/results?search_query=RAFT+optical+flow+paper+explained)  
-  Use this to understand correlation volumes and recurrent update blocks.
-
-## 6. Multiple View Geometry and 3D Vision
+## 5. Multiple View Geometry and 3D Vision
 
 ### Field Evolution
 
@@ -274,7 +234,7 @@ Last updated: 2026-06-02
 - [COLMAP and SfM tutorial search](https://www.youtube.com/results?search_query=COLMAP+structure+from+motion+tutorial+bundle+adjustment)  
   Useful for practical SfM intuition.
 
-## 7. 3D Object Detection and BEV Perception
+## 6. 3D Object Detection and BEV Perception
 
 This section focuses on **camera-centric** 3D detection and BEV perception. LiDAR and multimodal perception methods are intentionally left for a later expansion.
 
@@ -319,7 +279,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [Camera-only 3D object detection explanation search](https://www.youtube.com/results?search_query=camera-only+3D+object+detection+DETR3D+BEVFormer+explained)  
   Use this before BEVFormer if 3D queries are unfamiliar.
 
-## 8. SLAM, Odometry, and Occupancy
+## 7. SLAM, Odometry, and Occupancy
 
 ### Field Evolution
 
@@ -367,7 +327,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [Occupancy prediction autonomous driving search](https://www.youtube.com/results?search_query=occupancy+prediction+autonomous+driving+BEV+camera-only+lecture)  
   Use this for autonomous-driving occupancy framing.
 
-## 9. Motion Forecasting
+## 8. Motion Forecasting
 
 ### Field Evolution
 
@@ -409,7 +369,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [Trajectory prediction multimodal forecasting search](https://www.youtube.com/results?search_query=multimodal+trajectory+prediction+autonomous+driving+paper+explained)  
   Use this after VectorNet and LaneGCN.
 
-## 10. Planning and Control
+## 9. Planning and Control
 
 ### Field Evolution
 
@@ -451,7 +411,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [Autonomous driving planning lecture search](https://www.youtube.com/results?search_query=autonomous+driving+planning+and+control+lecture)  
   Use this to connect forecasting, planning, and control.
 
-## 11. Robot Learning
+## 10. Robot Learning
 
 ### Field Evolution
 
@@ -503,7 +463,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [RT-1 RT-2 OpenVLA explanation search](https://www.youtube.com/results?search_query=RT-1+RT-2+OpenVLA+vision+language+action+model+explained)  
   Use this for modern VLA-style robot learning.
 
-## 12. Foundation Models for Vision and Robotics
+## 11. Foundation Models for Vision and Robotics
 
 ### Field Evolution
 
@@ -554,7 +514,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [DINOv2 paper explanation search](https://www.youtube.com/results?search_query=DINOv2+paper+explained+computer+vision+foundation+model)  
   Use this after CLIP and MAE.
 
-## 13. End-to-End Autonomous Driving
+## 12. End-to-End Autonomous Driving
 
 ### Field Evolution
 
@@ -603,7 +563,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [End-to-end autonomous driving lecture search](https://www.youtube.com/results?search_query=end-to-end+autonomous+driving+imitation+learning+lecture+UniAD+VAD)  
   Use this before frontier VLA-style driving papers.
 
-## 14. Generative Vision and World Models
+## 13. Generative Vision and World Models
 
 ### Field Evolution
 
@@ -654,7 +614,7 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 - [GAIA driving world model explanation search](https://www.youtube.com/results?search_query=GAIA+generative+world+model+autonomous+driving+explained)  
   Use this for driving-specific world-model framing.
 
-## 15. Robustness, Uncertainty, and Safety
+## 14. Robustness, Uncertainty, and Safety
 
 This section focuses on failure awareness and safety for autonomous driving and robotics. It intentionally avoids a heavy adversarial-attack track and instead emphasizes uncertainty, calibration, OOD detection, test-time adaptation, and control-level safety constraints.
 
