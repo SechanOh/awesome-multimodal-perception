@@ -12,7 +12,7 @@ Last updated: 2026-06-02
 - [2. Segmentation and Scene Parsing](#2-segmentation-and-scene-parsing)
 - [3. Object Tracking and Multi-Object Tracking](#3-object-tracking-and-multi-object-tracking)
 - [4. Depth Estimation and Stereo](#4-depth-estimation-and-stereo)
-- [5. Optical Flow](#5-optical-flow)
+- [5. Optical Flow and Motion Correspondence](#5-optical-flow-and-motion-correspondence)
 - [6. Multiple View Geometry and 3D Vision](#6-multiple-view-geometry-and-3d-vision)
 - [7. 3D Object Detection and BEV Perception](#7-3d-object-detection-and-bev-perception)
 - [8. SLAM, Odometry, and Occupancy](#8-slam-odometry-and-occupancy)
@@ -193,44 +193,31 @@ Last updated: 2026-06-02
 - [Stereo matching lecture search](https://www.youtube.com/results?search_query=stereo+matching+depth+estimation+computer+vision+lecture)  
   Use this before PSMNet or RAFT-Stereo.
 
-## 5. Optical Flow
+## 5. Optical Flow and Motion Correspondence
+
+This section is intentionally lightweight. For autonomous driving and robotics, dense 2D optical flow is useful background for correspondence and motion cues, but modern systems often move toward temporal BEV features, 3D scene flow, occupancy flow, or forecasting representations. Skim this section for the core idea, then rely on later sections for system-level temporal reasoning.
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
+| **Papers / Readings** | **Shift** |
 |---|---|
-| Lucas-Kanade / Horn-Schunck | <kbd>local image alignment</kbd> ↔ <kbd>global smoothness-regularized flow</kbd> |
-| Lucas-Kanade / Horn-Schunck → FlowNet | <kbd>hand-designed optimization</kbd> → <kbd>end-to-end learned optical flow</kbd> |
-| FlowNet → PWC-Net | <kbd>direct CNN regression</kbd> → <kbd>pyramid, warping, and cost volume</kbd> |
-| PWC-Net → RAFT → GMFlow | <kbd>coarse-to-fine matching</kbd> → <kbd>all-pairs correlation</kbd> → <kbd>global matching</kbd> |
+| Classical Optical Flow Overview → RAFT | <kbd>brightness constancy</kbd>, <kbd>local/global optimization</kbd> → <kbd>learned dense correspondence with all-pairs correlation</kbd> |
 
 ### Reading Order
 
-1. [An Iterative Image Registration Technique with an Application to Stereo Vision](https://www.ri.cmu.edu/pub_files/pub3/lucas_bruce_d_1981_2/lucas_bruce_d_1981_2.pdf), IJCAI 1981  
-   Skim for: <kbd>Lucas-Kanade</kbd>, <kbd>local motion</kbd>, <kbd>image alignment</kbd>
+1. [Classical optical flow overview](https://www.youtube.com/results?search_query=optical+flow+computer+vision+lecture+Lucas+Kanade+Horn+Schunck)  
+   Skim for: <kbd>brightness constancy</kbd>, <kbd>aperture problem</kbd>, <kbd>local matching</kbd>, <kbd>smoothness prior</kbd>
 
-2. [Determining Optical Flow](https://people.csail.mit.edu/bkph/papers/Optical_Flow_OPT.pdf), Artificial Intelligence 1981  
-   Skim for: <kbd>Horn-Schunck</kbd>, <kbd>brightness constancy</kbd>, <kbd>smoothness prior</kbd>
-
-3. [FlowNet: Learning Optical Flow with Convolutional Networks](https://arxiv.org/abs/1504.06852), ICCV 2015  
-   Skim for: <kbd>learned optical flow</kbd>, <kbd>synthetic training data</kbd>, <kbd>end-to-end flow prediction</kbd>
-
-4. [PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume](https://arxiv.org/abs/1709.02371), CVPR 2018  
-   Skim for: <kbd>pyramid</kbd>, <kbd>warping</kbd>, <kbd>cost volume</kbd>
-
-5. [RAFT: Recurrent All-Pairs Field Transforms for Optical Flow](https://arxiv.org/abs/2003.12039), ECCV 2020  
-   Skim for: <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd>
-
-6. [GMFlow: Learning Optical Flow via Global Matching](https://arxiv.org/abs/2111.13680), CVPR 2022  
-   Skim for: <kbd>transformer-style global matching</kbd>, <kbd>correspondence</kbd>
+2. [RAFT: Recurrent All-Pairs Field Transforms for Optical Flow](https://arxiv.org/abs/2003.12039), ECCV 2020  
+   Skim for: <kbd>all-pairs correlation volume</kbd>, <kbd>iterative flow refinement</kbd>, <kbd>dense correspondence</kbd>
 
 ### YouTube Skim Resources
 
-- [Optical flow lecture search](https://www.youtube.com/results?search_query=optical+flow+computer+vision+lecture+Lucas+Kanade+Horn+Schunck+RAFT)  
-  Watch a classical optical-flow lecture first, then RAFT-specific explanations.
-
 - [RAFT paper explanation search](https://www.youtube.com/results?search_query=RAFT+optical+flow+paper+explained)  
   Use this to understand correlation volumes and recurrent update blocks.
+
+- [Scene flow / occupancy flow search](https://www.youtube.com/results?search_query=scene+flow+occupancy+flow+autonomous+driving+lecture)  
+  Use this only as optional context after RAFT; these ideas are better connected to BEV perception, occupancy, and motion forecasting.
 
 ## 6. Multiple View Geometry and 3D Vision
 
@@ -656,48 +643,45 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ## 15. Robustness, Uncertainty, and Safety
 
+This section focuses on failure awareness and safety for autonomous driving and robotics. It intentionally avoids a heavy adversarial-attack track and instead emphasizes uncertainty, calibration, OOD detection, test-time adaptation, and control-level safety constraints.
+
 ### Field Evolution
 
 | **Papers / Readings** | **Shift** |
 |---|---|
-| Explaining and Harnessing Adversarial Examples → PGD Adversarial Training | <kbd>attack examples</kbd> → <kbd>robust optimization</kbd> |
-| Deep Ensembles / Bayesian Uncertainty → Calibration | <kbd>uncertainty estimation</kbd> → <kbd>calibrated confidence for safety-critical prediction</kbd> |
-| Domain-Adversarial Training → Tent | <kbd>domain-invariant training</kbd> → <kbd>online adaptation at deployment time</kbd> |
-| Tent → WILDS | <kbd>test-time adaptation methods</kbd> → <kbd>real-world distribution-shift evaluation</kbd> |
+| Deep Ensembles → Bayesian Uncertainty | <kbd>single-model confidence</kbd> → <kbd>epistemic and aleatoric uncertainty for prediction</kbd> |
+| Bayesian Uncertainty → Calibration | <kbd>uncertainty estimates</kbd> → <kbd>reliable confidence for safety-critical decisions</kbd> |
+| Calibration → OOD Detection for Automotive Perception | <kbd>in-distribution confidence</kbd> → <kbd>detecting unfamiliar inputs and failure modes</kbd> |
+| OOD Detection → Tent | <kbd>failure detection under distribution shift</kbd> → <kbd>test-time adaptation under deployment shift</kbd> |
+| Tent → Control Barrier Function QPs | <kbd>robust perception under shift</kbd> → <kbd>control-level safety constraints and safe fallback behavior</kbd> |
 
 ### Reading Order
 
-1. [Explaining and Harnessing Adversarial Examples](https://arxiv.org/abs/1412.6572), ICLR 2015  
-   Skim for: <kbd>FGSM</kbd>, <kbd>adversarial examples</kbd>
-
-2. [Towards Deep Learning Models Resistant to Adversarial Attacks](https://arxiv.org/abs/1706.06083), ICLR 2018  
-   Skim for: <kbd>PGD adversarial training</kbd>, <kbd>robust optimization</kbd>
-
-3. [Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles](https://papers.neurips.cc/paper/7219-simple-and-scalable-predictive-uncertainty-estimation-using-deep-ensembles), NeurIPS 2017  
+1. [Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles](https://papers.neurips.cc/paper/7219-simple-and-scalable-predictive-uncertainty-estimation-using-deep-ensembles), NeurIPS 2017  
    Skim for: <kbd>ensemble uncertainty</kbd>, <kbd>calibration</kbd>, <kbd>OOD behavior</kbd>
 
-4. [What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?](https://arxiv.org/abs/1703.04977), NeurIPS 2017  
+2. [What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?](https://arxiv.org/abs/1703.04977), NeurIPS 2017  
    Skim for: <kbd>epistemic uncertainty</kbd>, <kbd>aleatoric uncertainty</kbd>, <kbd>dense prediction</kbd>
 
-5. [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599), ICML 2017  
+3. [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599), ICML 2017  
    Skim for: <kbd>confidence calibration</kbd>, <kbd>temperature scaling</kbd>, <kbd>reliability diagrams</kbd>
 
-6. [Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818), JMLR 2016  
-   Skim for: <kbd>gradient reversal</kbd>, <kbd>domain-invariant representation</kbd>
+4. [Out-of-Distribution Detection for Automotive Perception](https://arxiv.org/abs/2011.01413), 2020  
+   Skim for: <kbd>OOD detection</kbd>, <kbd>automotive perception</kbd>, <kbd>safe fallback trigger</kbd>, <kbd>real-time constraints</kbd>
 
-7. [Tent: Fully Test-time Adaptation by Entropy Minimization](https://arxiv.org/abs/2006.10726), ICLR 2021  
-   Skim for: <kbd>test-time adaptation</kbd>, <kbd>entropy minimization</kbd>, <kbd>batch-norm adaptation</kbd>
+5. [Tent: Fully Test-time Adaptation by Entropy Minimization](https://arxiv.org/abs/2006.10726), ICLR 2021  
+   Skim for: <kbd>test-time adaptation</kbd>, <kbd>entropy minimization</kbd>, <kbd>batch-norm adaptation</kbd>, <kbd>deployment shift</kbd>
 
-8. [WILDS: A Benchmark of in-the-Wild Distribution Shifts](https://arxiv.org/abs/2012.07421), ICML 2021  
-   Skim for: <kbd>realistic domain shift</kbd>, <kbd>robust evaluation</kbd>
+6. [Control Barrier Function Based Quadratic Programs for Safety Critical Systems](https://arxiv.org/abs/1609.06408), IEEE TAC 2017  
+   Skim for: <kbd>control barrier functions</kbd>, <kbd>forward invariance</kbd>, <kbd>safety constraints</kbd>, <kbd>CLF-CBF-QP</kbd>, <kbd>adaptive cruise control</kbd>
 
 ### YouTube Skim Resources
 
-- [Domain adaptation lecture search](https://www.youtube.com/results?search_query=domain+adaptation+computer+vision+lecture+test+time+adaptation)  
-  Use this before DANN and Tent.
+- [Uncertainty in deep learning lecture search](https://www.youtube.com/results?search_query=uncertainty+in+deep+learning+deep+ensembles+calibration+lecture)  
+  Use before Deep Ensembles, Bayesian uncertainty, and calibration.
 
-- [Uncertainty in deep learning lecture search](https://www.youtube.com/results?search_query=uncertainty+in+deep+learning+deep+ensembles+lecture)  
-  Use before Deep Ensembles and Bayesian uncertainty for vision.
+- [OOD detection autonomous driving search](https://www.youtube.com/results?search_query=out+of+distribution+detection+autonomous+driving+perception+lecture)  
+  Use this to connect OOD detection with road-scene perception and failure modes.
 
-- [Safety autonomous driving perception uncertainty search](https://www.youtube.com/results?search_query=autonomous+driving+perception+uncertainty+safety+OOD+lecture)  
-  Use this to connect uncertainty with safety-critical systems.
+- [Control barrier functions lecture search](https://www.youtube.com/results?search_query=control+barrier+functions+safety+critical+control+lecture+robotics+autonomous+driving)  
+  Use this after the planning/control section if the CLF-CBF-QP formulation is unfamiliar.
