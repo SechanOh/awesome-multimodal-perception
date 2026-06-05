@@ -48,12 +48,19 @@ flowchart LR
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["Faster R-CNN → YOLOv3<br/>two-stage accurate detection → one-stage real-time detection"]
-    step2["YOLOv3 → DETR<br/>dense anchor/grid prediction → set prediction with object queries"]
-    step3["DETR → Deformable DETR → DINO<br/>slow global attention DETR → sparse multi-scale attention, strong DETR training recipes"]
-    step4["GLIP → Grounding DINO<br/>closed-set category detection → language-conditioned open-set detection"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s1n1["Faster R-CNN"]
+    s1n2["YOLOv3"]
+    s1n3["DETR"]
+    s1n4["Deformable DETR"]
+    s1n5["DINO"]
+    s1n6["GLIP"]
+    s1n7["Grounding DINO"]
+    s1n1 -->|"two-stage accurate detection → one-stage real-time detection"| s1n2
+    s1n2 -->|"dense anchor/grid prediction → set prediction with object queries"| s1n3
+    s1n3 -->|"slow global attention DETR → sparse multi-scale attention, strong DETR training recipes"| s1n4
+    s1n4 -->|"slow global attention DETR → sparse multi-scale attention, strong DETR training recipes"| s1n5
+    s1n6 -->|"closed-set category detection → language-conditioned open-set detection"| s1n7
 ```
 
 ### Reading Order
@@ -92,12 +99,18 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["FCN → DeepLabv3+<br/>classification backbones → dense pixel-level prediction, multi-scale context"]
-    step2["DeepLabv3+ → SegFormer<br/>CNN encoder-decoder segmentation → transformer-based scene parsing"]
-    step3["Mask R-CNN → Mask2Former<br/>instance mask heads → unified semantic, instance, and panoptic segmentation"]
-    step4["SAM → SAM 2<br/>task-specific segmentation models → promptable image and video segmentation"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s2n1["FCN"]
+    s2n2["DeepLabv3+"]
+    s2n3["SegFormer"]
+    s2n4["Mask R-CNN"]
+    s2n5["Mask2Former"]
+    s2n6["SAM"]
+    s2n7["SAM 2"]
+    s2n1 -->|"classification backbones → dense pixel-level prediction, multi-scale context"| s2n2
+    s2n2 -->|"CNN encoder-decoder segmentation → transformer-based scene parsing"| s2n3
+    s2n4 -->|"instance mask heads → unified semantic, instance, and panoptic segmentation"| s2n5
+    s2n6 -->|"task-specific segmentation models → promptable image and video segmentation"| s2n7
 ```
 
 ### Reading Order
@@ -136,13 +149,20 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["SORT → DeepSORT<br/>motion-only association → appearance-aware data association"]
-    step2["DeepSORT → Tracktor++ → CenterTrack<br/>tracking after detection → detector-driven tracking, joint detection and tracking"]
-    step3["CenterTrack → TrackFormer<br/>object centers and offsets → persistent transformer tracking queries"]
-    step4["TrackFormer → ByteTrack<br/>query-based association → recovering tracks with low-confidence detections"]
-    step5["ByteTrack → SAM 2<br/>box-level association → promptable video object masks and memory"]
-    step1 --> step2 --> step3 --> step4 --> step5
+flowchart LR
+    s3n1["SORT"]
+    s3n2["DeepSORT"]
+    s3n3["Tracktor++"]
+    s3n4["CenterTrack"]
+    s3n5["TrackFormer"]
+    s3n6["ByteTrack"]
+    s3n7["SAM 2"]
+    s3n1 -->|"motion-only association → appearance-aware data association"| s3n2
+    s3n2 -->|"tracking after detection → detector-driven tracking, joint detection and tracking"| s3n3
+    s3n3 -->|"tracking after detection → detector-driven tracking, joint detection and tracking"| s3n4
+    s3n4 -->|"object centers and offsets → persistent transformer tracking queries"| s3n5
+    s3n5 -->|"query-based association → recovering tracks with low-confidence detections"| s3n6
+    s3n6 -->|"box-level association → promptable video object masks and memory"| s3n7
 ```
 
 ### Reading Order
@@ -181,12 +201,19 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["SfMLearner → Monodepth2<br/>photometric self-supervision → more robust monocular depth training"]
-    step2["PSMNet → RAFT-Stereo<br/>stereo cost volumes → iterative recurrent stereo matching"]
-    step3["Monodepth2 / MiDaS<br/>metric self-supervised depth ↔ robust relative depth across datasets"]
-    step4["MiDaS → Depth Anything → Depth Anything V2<br/>multi-dataset relative depth → large-scale unlabeled and synthetic data"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s4n1["SfMLearner"]
+    s4n2["Monodepth2"]
+    s4n3["PSMNet"]
+    s4n4["RAFT-Stereo"]
+    s4n5["MiDaS"]
+    s4n6["Depth Anything"]
+    s4n7["Depth Anything V2"]
+    s4n1 -->|"photometric self-supervision → more robust monocular depth training"| s4n2
+    s4n3 -->|"stereo cost volumes → iterative recurrent stereo matching"| s4n4
+    s4n2 -->|"metric self-supervised depth ↔ robust relative depth across datasets"| s4n5
+    s4n5 -->|"multi-dataset relative depth → large-scale unlabeled and synthetic data"| s4n6
+    s4n6 -->|"multi-dataset relative depth → large-scale unlabeled and synthetic data"| s4n7
 ```
 
 ### Reading Order
@@ -225,12 +252,20 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["Multiple View Geometry → COLMAP<br/>camera models and epipolar geometry → practical SfM pipeline"]
-    step2["SIFT → SuperGlue → LoFTR<br/>hand-crafted local features → learned matching → detector-free correspondence"]
-    step3["COLMAP-style reconstruction → DUSt3R<br/>matching + camera optimization → feed-forward pointmap prediction"]
-    step4["DUSt3R → VGGT<br/>pairwise geometry foundation model → generalist prediction of cameras, depth, tracks, and point maps"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s5n1["Multiple View Geometry"]
+    s5n2["COLMAP"]
+    s5n3["SIFT"]
+    s5n4["SuperGlue"]
+    s5n5["LoFTR"]
+    s5n6["COLMAP-style reconstruction"]
+    s5n7["DUSt3R"]
+    s5n8["VGGT"]
+    s5n1 -->|"camera models and epipolar geometry → practical SfM pipeline"| s5n2
+    s5n3 -->|"hand-crafted local features → learned matching"| s5n4
+    s5n4 -->|"learned matching → detector-free correspondence"| s5n5
+    s5n6 -->|"matching + camera optimization → feed-forward pointmap prediction"| s5n7
+    s5n7 -->|"pairwise geometry foundation model → generalist prediction of cameras, depth, tracks, and point maps"| s5n8
 ```
 
 ### Reading Order
@@ -271,13 +306,19 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["FCOS3D → DETR3D<br/>monocular 3D box regression → multi-view query-based 3D detection"]
-    step2["DETR3D → PETR<br/>3D-to-2D query projection → 3D position-aware transformer detection"]
-    step3["BEVDet → BEVDepth<br/>camera-to-BEV lifting → depth-aware BEV feature construction"]
-    step4["BEVDepth → BEVFormer<br/>single-frame BEV features → spatiotemporal BEV representation"]
-    step5["BEVFormer → StreamPETR<br/>BEV-centric temporal modeling → object-centric online temporal 3D detection"]
-    step1 --> step2 --> step3 --> step4 --> step5
+flowchart LR
+    s6n1["FCOS3D"]
+    s6n2["DETR3D"]
+    s6n3["PETR"]
+    s6n4["BEVDet"]
+    s6n5["BEVDepth"]
+    s6n6["BEVFormer"]
+    s6n7["StreamPETR"]
+    s6n1 -->|"monocular 3D box regression → multi-view query-based 3D detection"| s6n2
+    s6n2 -->|"3D-to-2D query projection → 3D position-aware transformer detection"| s6n3
+    s6n4 -->|"camera-to-BEV lifting → depth-aware BEV feature construction"| s6n5
+    s6n5 -->|"single-frame BEV features → spatiotemporal BEV representation"| s6n6
+    s6n6 -->|"BEV-centric temporal modeling → object-centric online temporal 3D detection"| s6n7
 ```
 
 ### Reading Order
@@ -316,12 +357,17 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["ORB-SLAM3 → DROID-SLAM<br/>feature-based SLAM with loop closure → learned dense visual odometry and bundle adjustment"]
-    step2["DROID-SLAM → DPVO<br/>dense recurrent updates → patch-based learned visual odometry"]
-    step3["DROID-SLAM → NICE-SLAM / Co-SLAM<br/>visual odometry and dense BA → neural implicit dense mapping"]
-    step4["Scene as Occupancy → OccFormer / OccTransformer<br/>explicit maps and reconstruction → camera-centric 3D semantic occupancy prediction"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s7n1["ORB-SLAM3"]
+    s7n2["DROID-SLAM"]
+    s7n3["DPVO"]
+    s7n4["NICE-SLAM / Co-SLAM"]
+    s7n5["Scene as Occupancy"]
+    s7n6["OccFormer / OccTransformer"]
+    s7n1 -->|"feature-based SLAM with loop closure → learned dense visual odometry and bundle adjustment"| s7n2
+    s7n2 -->|"dense recurrent updates → patch-based learned visual odometry"| s7n3
+    s7n2 -->|"visual odometry and dense BA → neural implicit dense mapping"| s7n4
+    s7n5 -->|"explicit maps and reconstruction → camera-centric 3D semantic occupancy prediction"| s7n6
 ```
 
 ### Reading Order
@@ -366,12 +412,19 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["Social LSTM / Social GAN<br/>single trajectory prediction → interaction-aware and multimodal prediction"]
-    step2["Social GAN → VectorNet<br/>agent-centric sequence modeling → vectorized map and trajectory representation"]
-    step3["VectorNet → LaneGCN → TNT<br/>polyline encoding → lane graph reasoning, goal/target-conditioned prediction"]
-    step4["Wayformer → MTR<br/>attention over scene tokens → motion-query-based multimodal forecasting"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s8n1["Social LSTM"]
+    s8n2["Social GAN"]
+    s8n3["VectorNet"]
+    s8n4["LaneGCN"]
+    s8n5["TNT"]
+    s8n6["Wayformer"]
+    s8n7["MTR"]
+    s8n1 -->|"single trajectory prediction → interaction-aware and multimodal prediction"| s8n2
+    s8n2 -->|"agent-centric sequence modeling → vectorized map and trajectory representation"| s8n3
+    s8n3 -->|"polyline encoding → lane graph reasoning, goal/target-conditioned prediction"| s8n4
+    s8n4 -->|"polyline encoding → lane graph reasoning, goal/target-conditioned prediction"| s8n5
+    s8n6 -->|"attention over scene tokens → motion-query-based multimodal forecasting"| s8n7
 ```
 
 ### Reading Order
@@ -410,12 +463,17 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["Planning Algorithms → Motion Planning and Control Survey<br/>general motion planning foundations → self-driving planning and control stack"]
-    step2["Motion Planning and Control Survey → MPC<br/>stack-level planning overview → receding-horizon feedback control under constraints"]
-    step3["DAgger → ChauffeurNet<br/>distribution-shift-aware imitation → closed-loop driving behavior learning"]
-    step4["ChauffeurNet → GameFormer<br/>imitation-based behavior generation → interactive prediction and planning"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s9n1["Planning Algorithms"]
+    s9n2["Motion Planning and Control Survey"]
+    s9n3["MPC"]
+    s9n4["DAgger"]
+    s9n5["ChauffeurNet"]
+    s9n6["GameFormer"]
+    s9n1 -->|"general motion planning foundations → self-driving planning and control stack"| s9n2
+    s9n2 -->|"stack-level planning overview → receding-horizon feedback control under constraints"| s9n3
+    s9n4 -->|"distribution-shift-aware imitation → closed-loop driving behavior learning"| s9n5
+    s9n5 -->|"imitation-based behavior generation → interactive prediction and planning"| s9n6
 ```
 
 ### Reading Order
@@ -454,13 +512,23 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["Learning from Demonstration Survey → DAgger<br/>offline demonstration learning → interactive correction and distribution-shift reduction"]
-    step2["DAgger → Deep Visuomotor Policies<br/>interactive imitation learning → end-to-end visual policy learning"]
-    step3["Deep Visuomotor Policies → RT-1<br/>task-specific policies → large-scale language-conditioned robot policies"]
-    step4["Decision Transformer → Diffusion Policy<br/>trajectory sequence modeling → generative action modeling"]
-    step5["RT-1 → RT-2 → Open X-Embodiment → OpenVLA<br/>robot transformer policies → VLA transfer, cross-embodiment data, open VLA models"]
-    step1 --> step2 --> step3 --> step4 --> step5
+flowchart LR
+    s10n1["Learning from Demonstration Survey"]
+    s10n2["DAgger"]
+    s10n3["Deep Visuomotor Policies"]
+    s10n4["RT-1"]
+    s10n5["Decision Transformer"]
+    s10n6["Diffusion Policy"]
+    s10n7["RT-2"]
+    s10n8["Open X-Embodiment"]
+    s10n9["OpenVLA"]
+    s10n1 -->|"offline demonstration learning → interactive correction and distribution-shift reduction"| s10n2
+    s10n2 -->|"interactive imitation learning → end-to-end visual policy learning"| s10n3
+    s10n3 -->|"task-specific policies → large-scale language-conditioned robot policies"| s10n4
+    s10n5 -->|"trajectory sequence modeling → generative action modeling"| s10n6
+    s10n4 -->|"robot transformer policies → VLA transfer, cross-embodiment data, open VLA models"| s10n7
+    s10n7 -->|"robot transformer policies → VLA transfer, cross-embodiment data, open VLA models"| s10n8
+    s10n8 -->|"robot transformer policies → VLA transfer, cross-embodiment data, open VLA models"| s10n9
 ```
 
 ### Reading Order
@@ -508,12 +576,19 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["ViT → CLIP<br/>transformer vision backbone → image-text contrastive learning"]
-    step2["CLIP → MAE → DINOv2<br/>zero-shot image-text transfer → masked image modeling, self-supervised dense visual features"]
-    step3["DINOv2 → SAM / SAM 2<br/>foundation visual features → promptable image and video segmentation"]
-    step4["CLIP / SigLIP → VideoPrism / InternVL<br/>image-language alignment → video and multimodal foundation encoders"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s11n1["ViT"]
+    s11n2["CLIP"]
+    s11n3["MAE"]
+    s11n4["DINOv2"]
+    s11n5["SAM / SAM 2"]
+    s11n6["CLIP / SigLIP"]
+    s11n7["VideoPrism / InternVL"]
+    s11n1 -->|"transformer vision backbone → image-text contrastive learning"| s11n2
+    s11n2 -->|"zero-shot image-text transfer → masked image modeling, self-supervised dense visual features"| s11n3
+    s11n3 -->|"zero-shot image-text transfer → masked image modeling, self-supervised dense visual features"| s11n4
+    s11n4 -->|"foundation visual features → promptable image and video segmentation"| s11n5
+    s11n6 -->|"image-language alignment → video and multimodal foundation encoders"| s11n7
 ```
 
 ### Reading Order
@@ -561,13 +636,20 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["End-to-end driving → Conditional Imitation Learning<br/>direct behavior cloning → command-conditioned driving policies"]
-    step2["Conditional imitation → Learning by Cheating / World on Rails<br/>raw sensor-to-control imitation → privileged intermediate representations and structured driving policies"]
-    step3["ChauffeurNet → UniAD<br/>closed-loop imitation heuristics → planning-oriented unified perception, prediction, mapping, and planning"]
-    step4["UniAD → VAD<br/>dense modular unified stack → vectorized scene representation for efficient planning"]
-    step5["VAD → OpenDriveVLA / ORION<br/>planning-oriented driving models → vision-language-action driving formulation"]
-    step1 --> step2 --> step3 --> step4 --> step5
+flowchart LR
+    s12n1["End-to-end driving"]
+    s12n2["Conditional Imitation Learning"]
+    s12n3["Conditional imitation"]
+    s12n4["Learning by Cheating / World on Rails"]
+    s12n5["ChauffeurNet"]
+    s12n6["UniAD"]
+    s12n7["VAD"]
+    s12n8["OpenDriveVLA / ORION"]
+    s12n1 -->|"direct behavior cloning → command-conditioned driving policies"| s12n2
+    s12n3 -->|"raw sensor-to-control imitation → privileged intermediate representations and structured driving policies"| s12n4
+    s12n5 -->|"closed-loop imitation heuristics → planning-oriented unified perception, prediction, mapping, and planning"| s12n6
+    s12n6 -->|"dense modular unified stack → vectorized scene representation for efficient planning"| s12n7
+    s12n7 -->|"planning-oriented driving models → vision-language-action driving formulation"| s12n8
 ```
 
 ### Reading Order
@@ -612,12 +694,18 @@ flowchart TD
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["DDPM → Latent Diffusion<br/>pixel-space denoising diffusion → latent-space diffusion with conditioning"]
-    step2["Latent Diffusion → Video Diffusion / SVD<br/>image generation → temporal generation and image-to-video modeling"]
-    step3["DreamerV3 → Genie<br/>latent world models for control → action-controllable generative environments from videos"]
-    step4["GAIA-1 → DrivingWorld / GAIA-2<br/>driving video generation → controllable multi-view driving world models"]
-    step1 --> step2 --> step3 --> step4
+flowchart LR
+    s13n1["DDPM"]
+    s13n2["Latent Diffusion"]
+    s13n3["Video Diffusion / SVD"]
+    s13n4["DreamerV3"]
+    s13n5["Genie"]
+    s13n6["GAIA-1"]
+    s13n7["DrivingWorld / GAIA-2"]
+    s13n1 -->|"pixel-space denoising diffusion → latent-space diffusion with conditioning"| s13n2
+    s13n2 -->|"image generation → temporal generation and image-to-video modeling"| s13n3
+    s13n4 -->|"latent world models for control → action-controllable generative environments from videos"| s13n5
+    s13n6 -->|"driving video generation → controllable multi-view driving world models"| s13n7
 ```
 
 ### Reading Order
@@ -667,13 +755,19 @@ This section focuses on failure awareness and safety for autonomous driving and 
 ### Field Evolution
 
 ```mermaid
-flowchart TD
-    step1["Deep Ensembles → Bayesian Uncertainty<br/>single-model confidence → epistemic and aleatoric uncertainty for prediction"]
-    step2["Bayesian Uncertainty → Calibration<br/>uncertainty estimates → reliable confidence for safety-critical decisions"]
-    step3["Calibration → OOD Detection for Automotive Perception<br/>in-distribution confidence → detecting unfamiliar inputs and failure modes"]
-    step4["OOD Detection → Tent<br/>failure detection under distribution shift → test-time adaptation under deployment shift"]
-    step5["Tent → Control Barrier Function QPs<br/>robust perception under shift → control-level safety constraints and safe fallback behavior"]
-    step1 --> step2 --> step3 --> step4 --> step5
+flowchart LR
+    s14n1["Deep Ensembles"]
+    s14n2["Bayesian Uncertainty"]
+    s14n3["Calibration"]
+    s14n4["OOD Detection for Automotive Perception"]
+    s14n5["OOD Detection"]
+    s14n6["Tent"]
+    s14n7["Control Barrier Function QPs"]
+    s14n1 -->|"single-model confidence → epistemic and aleatoric uncertainty for prediction"| s14n2
+    s14n2 -->|"uncertainty estimates → reliable confidence for safety-critical decisions"| s14n3
+    s14n3 -->|"in-distribution confidence → detecting unfamiliar inputs and failure modes"| s14n4
+    s14n5 -->|"failure detection under distribution shift → test-time adaptation under deployment shift"| s14n6
+    s14n6 -->|"robust perception under shift → control-level safety constraints and safe fallback behavior"| s14n7
 ```
 
 ### Reading Order
