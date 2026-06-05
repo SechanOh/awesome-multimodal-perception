@@ -2,9 +2,29 @@
 
 A reading roadmap for skimming essential computer vision, geometry, autonomous driving, and robot learning papers.
 
-This roadmap prioritizes **conceptual shifts** and system-level background over simply listing the newest SOTA papers. Each section starts with a compact field-evolution table; skim that first, then read the papers in order.
+This roadmap prioritizes **conceptual shifts** and system-level background over simply listing the newest SOTA papers. Read each section as a small map: first understand the field evolution, then skim the papers in order, then use the video links only when the vocabulary feels unfamiliar.
 
-Last updated: 2026-06-02
+Last updated: 2026-06-05
+
+## At a Glance
+
+| Layer | What to build intuition for | Sections |
+|---|---|---|
+| 2D perception | Detect, segment, and track objects in images and video. | [2D Object Detection](#1-2d-object-detection), [Segmentation and Scene Parsing](#2-segmentation-and-scene-parsing), [Object Tracking](#3-object-tracking-and-multi-object-tracking) |
+| Geometry | Recover depth, camera motion, correspondence, and 3D structure. | [Depth Estimation and Stereo](#4-depth-estimation-and-stereo), [Multiple View Geometry and 3D Vision](#5-multiple-view-geometry-and-3d-vision) |
+| Driving perception | Lift camera features into 3D and BEV representations. | [3D Object Detection and BEV Perception](#6-3d-object-detection-and-bev-perception), [SLAM, Odometry, and Occupancy](#7-slam-odometry-and-occupancy) |
+| Decision making | Predict agent motion, plan actions, and learn robot policies. | [Motion Forecasting](#8-motion-forecasting), [Planning and Control](#9-planning-and-control), [Robot Learning](#10-robot-learning) |
+| Modern generalists | Use foundation models, world models, and safety tools. | [Foundation Models](#11-foundation-models-for-vision-and-robotics), [End-to-End Autonomous Driving](#12-end-to-end-autonomous-driving), [Generative Vision and World Models](#13-generative-vision-and-world-models), [Robustness, Uncertainty, and Safety](#14-robustness-uncertainty-and-safety) |
+
+```mermaid
+flowchart LR
+    A["2D perception<br/>detection, segmentation, tracking"] --> B["Geometry<br/>depth, stereo, correspondence, SfM"]
+    B --> C["3D and BEV perception<br/>camera-only 3D detection, occupancy"]
+    C --> D["Scene dynamics<br/>SLAM, odometry, motion forecasting"]
+    D --> E["Action<br/>planning, control, robot learning"]
+    E --> F["Generalist systems<br/>foundation models, VLA models, world models"]
+    F --> G["Deployment concerns<br/>robustness, uncertainty, safety"]
+```
 
 ## Table of Contents
 
@@ -27,12 +47,14 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| Faster R-CNN → YOLOv3 | <kbd>two-stage accurate detection</kbd> → <kbd>one-stage real-time detection</kbd> |
-| YOLOv3 → DETR | <kbd>dense anchor/grid prediction</kbd> → <kbd>set prediction with object queries</kbd> |
-| DETR → Deformable DETR → DINO | <kbd>slow global attention DETR</kbd> → <kbd>sparse multi-scale attention</kbd>, <kbd>strong DETR training recipes</kbd> |
-| GLIP → Grounding DINO | <kbd>closed-set category detection</kbd> → <kbd>language-conditioned open-set detection</kbd> |
+```mermaid
+flowchart TD
+    step1["Faster R-CNN → YOLOv3<br/>two-stage accurate detection → one-stage real-time detection"]
+    step2["YOLOv3 → DETR<br/>dense anchor/grid prediction → set prediction with object queries"]
+    step3["DETR → Deformable DETR → DINO<br/>slow global attention DETR → sparse multi-scale attention, strong DETR training recipes"]
+    step4["GLIP → Grounding DINO<br/>closed-set category detection → language-conditioned open-set detection"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -69,12 +91,14 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| FCN → DeepLabv3+ | <kbd>classification backbones</kbd> → <kbd>dense pixel-level prediction</kbd>, <kbd>multi-scale context</kbd> |
-| DeepLabv3+ → SegFormer | <kbd>CNN encoder-decoder segmentation</kbd> → <kbd>transformer-based scene parsing</kbd> |
-| Mask R-CNN → Mask2Former | <kbd>instance mask heads</kbd> → <kbd>unified semantic, instance, and panoptic segmentation</kbd> |
-| SAM → SAM 2 | <kbd>task-specific segmentation models</kbd> → <kbd>promptable image and video segmentation</kbd> |
+```mermaid
+flowchart TD
+    step1["FCN → DeepLabv3+<br/>classification backbones → dense pixel-level prediction, multi-scale context"]
+    step2["DeepLabv3+ → SegFormer<br/>CNN encoder-decoder segmentation → transformer-based scene parsing"]
+    step3["Mask R-CNN → Mask2Former<br/>instance mask heads → unified semantic, instance, and panoptic segmentation"]
+    step4["SAM → SAM 2<br/>task-specific segmentation models → promptable image and video segmentation"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -111,13 +135,15 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| SORT → DeepSORT | <kbd>motion-only association</kbd> → <kbd>appearance-aware data association</kbd> |
-| DeepSORT → Tracktor++ → CenterTrack | <kbd>tracking after detection</kbd> → <kbd>detector-driven tracking</kbd>, <kbd>joint detection and tracking</kbd> |
-| CenterTrack → TrackFormer | <kbd>object centers and offsets</kbd> → <kbd>persistent transformer tracking queries</kbd> |
-| TrackFormer → ByteTrack | <kbd>query-based association</kbd> → <kbd>recovering tracks with low-confidence detections</kbd> |
-| ByteTrack → SAM 2 | <kbd>box-level association</kbd> → <kbd>promptable video object masks and memory</kbd> |
+```mermaid
+flowchart TD
+    step1["SORT → DeepSORT<br/>motion-only association → appearance-aware data association"]
+    step2["DeepSORT → Tracktor++ → CenterTrack<br/>tracking after detection → detector-driven tracking, joint detection and tracking"]
+    step3["CenterTrack → TrackFormer<br/>object centers and offsets → persistent transformer tracking queries"]
+    step4["TrackFormer → ByteTrack<br/>query-based association → recovering tracks with low-confidence detections"]
+    step5["ByteTrack → SAM 2<br/>box-level association → promptable video object masks and memory"]
+    step1 --> step2 --> step3 --> step4 --> step5
+```
 
 ### Reading Order
 
@@ -154,12 +180,14 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| SfMLearner → Monodepth2 | <kbd>photometric self-supervision</kbd> → <kbd>more robust monocular depth training</kbd> |
-| PSMNet → RAFT-Stereo | <kbd>stereo cost volumes</kbd> → <kbd>iterative recurrent stereo matching</kbd> |
-| Monodepth2 / MiDaS | <kbd>metric self-supervised depth</kbd> ↔ <kbd>robust relative depth across datasets</kbd> |
-| MiDaS → Depth Anything → Depth Anything V2 | <kbd>multi-dataset relative depth</kbd> → <kbd>large-scale unlabeled and synthetic data</kbd> |
+```mermaid
+flowchart TD
+    step1["SfMLearner → Monodepth2<br/>photometric self-supervision → more robust monocular depth training"]
+    step2["PSMNet → RAFT-Stereo<br/>stereo cost volumes → iterative recurrent stereo matching"]
+    step3["Monodepth2 / MiDaS<br/>metric self-supervised depth ↔ robust relative depth across datasets"]
+    step4["MiDaS → Depth Anything → Depth Anything V2<br/>multi-dataset relative depth → large-scale unlabeled and synthetic data"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -196,12 +224,14 @@ Last updated: 2026-06-02
 
 ### Field Evolution
 
-| **Papers / Topics** | **Shift** |
-|---|---|
-| Multiple View Geometry → COLMAP | <kbd>camera models and epipolar geometry</kbd> → <kbd>practical SfM pipeline</kbd> |
-| SIFT → SuperGlue → LoFTR | <kbd>hand-crafted local features</kbd> → <kbd>learned matching</kbd> → <kbd>detector-free correspondence</kbd> |
-| COLMAP-style reconstruction → DUSt3R | <kbd>matching + camera optimization</kbd> → <kbd>feed-forward pointmap prediction</kbd> |
-| DUSt3R → VGGT | <kbd>pairwise geometry foundation model</kbd> → <kbd>generalist prediction of cameras, depth, tracks, and point maps</kbd> |
+```mermaid
+flowchart TD
+    step1["Multiple View Geometry → COLMAP<br/>camera models and epipolar geometry → practical SfM pipeline"]
+    step2["SIFT → SuperGlue → LoFTR<br/>hand-crafted local features → learned matching → detector-free correspondence"]
+    step3["COLMAP-style reconstruction → DUSt3R<br/>matching + camera optimization → feed-forward pointmap prediction"]
+    step4["DUSt3R → VGGT<br/>pairwise geometry foundation model → generalist prediction of cameras, depth, tracks, and point maps"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -240,13 +270,15 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| FCOS3D → DETR3D | <kbd>monocular 3D box regression</kbd> → <kbd>multi-view query-based 3D detection</kbd> |
-| DETR3D → PETR | <kbd>3D-to-2D query projection</kbd> → <kbd>3D position-aware transformer detection</kbd> |
-| BEVDet → BEVDepth | <kbd>camera-to-BEV lifting</kbd> → <kbd>depth-aware BEV feature construction</kbd> |
-| BEVDepth → BEVFormer | <kbd>single-frame BEV features</kbd> → <kbd>spatiotemporal BEV representation</kbd> |
-| BEVFormer → StreamPETR | <kbd>BEV-centric temporal modeling</kbd> → <kbd>object-centric online temporal 3D detection</kbd> |
+```mermaid
+flowchart TD
+    step1["FCOS3D → DETR3D<br/>monocular 3D box regression → multi-view query-based 3D detection"]
+    step2["DETR3D → PETR<br/>3D-to-2D query projection → 3D position-aware transformer detection"]
+    step3["BEVDet → BEVDepth<br/>camera-to-BEV lifting → depth-aware BEV feature construction"]
+    step4["BEVDepth → BEVFormer<br/>single-frame BEV features → spatiotemporal BEV representation"]
+    step5["BEVFormer → StreamPETR<br/>BEV-centric temporal modeling → object-centric online temporal 3D detection"]
+    step1 --> step2 --> step3 --> step4 --> step5
+```
 
 ### Reading Order
 
@@ -283,12 +315,14 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| ORB-SLAM3 → DROID-SLAM | <kbd>feature-based SLAM with loop closure</kbd> → <kbd>learned dense visual odometry and bundle adjustment</kbd> |
-| DROID-SLAM → DPVO | <kbd>dense recurrent updates</kbd> → <kbd>patch-based learned visual odometry</kbd> |
-| DROID-SLAM → NICE-SLAM / Co-SLAM | <kbd>visual odometry and dense BA</kbd> → <kbd>neural implicit dense mapping</kbd> |
-| Scene as Occupancy → OccFormer / OccTransformer | <kbd>explicit maps and reconstruction</kbd> → <kbd>camera-centric 3D semantic occupancy prediction</kbd> |
+```mermaid
+flowchart TD
+    step1["ORB-SLAM3 → DROID-SLAM<br/>feature-based SLAM with loop closure → learned dense visual odometry and bundle adjustment"]
+    step2["DROID-SLAM → DPVO<br/>dense recurrent updates → patch-based learned visual odometry"]
+    step3["DROID-SLAM → NICE-SLAM / Co-SLAM<br/>visual odometry and dense BA → neural implicit dense mapping"]
+    step4["Scene as Occupancy → OccFormer / OccTransformer<br/>explicit maps and reconstruction → camera-centric 3D semantic occupancy prediction"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -331,12 +365,14 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| Social LSTM / Social GAN | <kbd>single trajectory prediction</kbd> → <kbd>interaction-aware and multimodal prediction</kbd> |
-| Social GAN → VectorNet | <kbd>agent-centric sequence modeling</kbd> → <kbd>vectorized map and trajectory representation</kbd> |
-| VectorNet → LaneGCN → TNT | <kbd>polyline encoding</kbd> → <kbd>lane graph reasoning</kbd>, <kbd>goal/target-conditioned prediction</kbd> |
-| Wayformer → MTR | <kbd>attention over scene tokens</kbd> → <kbd>motion-query-based multimodal forecasting</kbd> |
+```mermaid
+flowchart TD
+    step1["Social LSTM / Social GAN<br/>single trajectory prediction → interaction-aware and multimodal prediction"]
+    step2["Social GAN → VectorNet<br/>agent-centric sequence modeling → vectorized map and trajectory representation"]
+    step3["VectorNet → LaneGCN → TNT<br/>polyline encoding → lane graph reasoning, goal/target-conditioned prediction"]
+    step4["Wayformer → MTR<br/>attention over scene tokens → motion-query-based multimodal forecasting"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -373,12 +409,14 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers / Readings** | **Shift** |
-|---|---|
-| Planning Algorithms → Motion Planning and Control Survey | <kbd>general motion planning foundations</kbd> → <kbd>self-driving planning and control stack</kbd> |
-| Motion Planning and Control Survey → MPC | <kbd>stack-level planning overview</kbd> → <kbd>receding-horizon feedback control under constraints</kbd> |
-| DAgger → ChauffeurNet | <kbd>distribution-shift-aware imitation</kbd> → <kbd>closed-loop driving behavior learning</kbd> |
-| ChauffeurNet → GameFormer | <kbd>imitation-based behavior generation</kbd> → <kbd>interactive prediction and planning</kbd> |
+```mermaid
+flowchart TD
+    step1["Planning Algorithms → Motion Planning and Control Survey<br/>general motion planning foundations → self-driving planning and control stack"]
+    step2["Motion Planning and Control Survey → MPC<br/>stack-level planning overview → receding-horizon feedback control under constraints"]
+    step3["DAgger → ChauffeurNet<br/>distribution-shift-aware imitation → closed-loop driving behavior learning"]
+    step4["ChauffeurNet → GameFormer<br/>imitation-based behavior generation → interactive prediction and planning"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -415,13 +453,15 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers / Readings** | **Shift** |
-|---|---|
-| Learning from Demonstration Survey → DAgger | <kbd>offline demonstration learning</kbd> → <kbd>interactive correction and distribution-shift reduction</kbd> |
-| DAgger → Deep Visuomotor Policies | <kbd>interactive imitation learning</kbd> → <kbd>end-to-end visual policy learning</kbd> |
-| Deep Visuomotor Policies → RT-1 | <kbd>task-specific policies</kbd> → <kbd>large-scale language-conditioned robot policies</kbd> |
-| Decision Transformer → Diffusion Policy | <kbd>trajectory sequence modeling</kbd> → <kbd>generative action modeling</kbd> |
-| RT-1 → RT-2 → Open X-Embodiment → OpenVLA | <kbd>robot transformer policies</kbd> → <kbd>VLA transfer</kbd>, <kbd>cross-embodiment data</kbd>, <kbd>open VLA models</kbd> |
+```mermaid
+flowchart TD
+    step1["Learning from Demonstration Survey → DAgger<br/>offline demonstration learning → interactive correction and distribution-shift reduction"]
+    step2["DAgger → Deep Visuomotor Policies<br/>interactive imitation learning → end-to-end visual policy learning"]
+    step3["Deep Visuomotor Policies → RT-1<br/>task-specific policies → large-scale language-conditioned robot policies"]
+    step4["Decision Transformer → Diffusion Policy<br/>trajectory sequence modeling → generative action modeling"]
+    step5["RT-1 → RT-2 → Open X-Embodiment → OpenVLA<br/>robot transformer policies → VLA transfer, cross-embodiment data, open VLA models"]
+    step1 --> step2 --> step3 --> step4 --> step5
+```
 
 ### Reading Order
 
@@ -467,12 +507,14 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| ViT → CLIP | <kbd>transformer vision backbone</kbd> → <kbd>image-text contrastive learning</kbd> |
-| CLIP → MAE → DINOv2 | <kbd>zero-shot image-text transfer</kbd> → <kbd>masked image modeling</kbd>, <kbd>self-supervised dense visual features</kbd> |
-| DINOv2 → SAM / SAM 2 | <kbd>foundation visual features</kbd> → <kbd>promptable image and video segmentation</kbd> |
-| CLIP / SigLIP → VideoPrism / InternVL | <kbd>image-language alignment</kbd> → <kbd>video and multimodal foundation encoders</kbd> |
+```mermaid
+flowchart TD
+    step1["ViT → CLIP<br/>transformer vision backbone → image-text contrastive learning"]
+    step2["CLIP → MAE → DINOv2<br/>zero-shot image-text transfer → masked image modeling, self-supervised dense visual features"]
+    step3["DINOv2 → SAM / SAM 2<br/>foundation visual features → promptable image and video segmentation"]
+    step4["CLIP / SigLIP → VideoPrism / InternVL<br/>image-language alignment → video and multimodal foundation encoders"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -518,13 +560,15 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| End-to-end driving → Conditional Imitation Learning | <kbd>direct behavior cloning</kbd> → <kbd>command-conditioned driving policies</kbd> |
-| Conditional imitation → Learning by Cheating / World on Rails | <kbd>raw sensor-to-control imitation</kbd> → <kbd>privileged intermediate representations and structured driving policies</kbd> |
-| ChauffeurNet → UniAD | <kbd>closed-loop imitation heuristics</kbd> → <kbd>planning-oriented unified perception, prediction, mapping, and planning</kbd> |
-| UniAD → VAD | <kbd>dense modular unified stack</kbd> → <kbd>vectorized scene representation for efficient planning</kbd> |
-| VAD → OpenDriveVLA / ORION | <kbd>planning-oriented driving models</kbd> → <kbd>vision-language-action driving formulation</kbd> |
+```mermaid
+flowchart TD
+    step1["End-to-end driving → Conditional Imitation Learning<br/>direct behavior cloning → command-conditioned driving policies"]
+    step2["Conditional imitation → Learning by Cheating / World on Rails<br/>raw sensor-to-control imitation → privileged intermediate representations and structured driving policies"]
+    step3["ChauffeurNet → UniAD<br/>closed-loop imitation heuristics → planning-oriented unified perception, prediction, mapping, and planning"]
+    step4["UniAD → VAD<br/>dense modular unified stack → vectorized scene representation for efficient planning"]
+    step5["VAD → OpenDriveVLA / ORION<br/>planning-oriented driving models → vision-language-action driving formulation"]
+    step1 --> step2 --> step3 --> step4 --> step5
+```
 
 ### Reading Order
 
@@ -567,12 +611,14 @@ This section focuses on **camera-centric** 3D detection and BEV perception. LiDA
 
 ### Field Evolution
 
-| **Papers** | **Shift** |
-|---|---|
-| DDPM → Latent Diffusion | <kbd>pixel-space denoising diffusion</kbd> → <kbd>latent-space diffusion with conditioning</kbd> |
-| Latent Diffusion → Video Diffusion / SVD | <kbd>image generation</kbd> → <kbd>temporal generation and image-to-video modeling</kbd> |
-| DreamerV3 → Genie | <kbd>latent world models for control</kbd> → <kbd>action-controllable generative environments from videos</kbd> |
-| GAIA-1 → DrivingWorld / GAIA-2 | <kbd>driving video generation</kbd> → <kbd>controllable multi-view driving world models</kbd> |
+```mermaid
+flowchart TD
+    step1["DDPM → Latent Diffusion<br/>pixel-space denoising diffusion → latent-space diffusion with conditioning"]
+    step2["Latent Diffusion → Video Diffusion / SVD<br/>image generation → temporal generation and image-to-video modeling"]
+    step3["DreamerV3 → Genie<br/>latent world models for control → action-controllable generative environments from videos"]
+    step4["GAIA-1 → DrivingWorld / GAIA-2<br/>driving video generation → controllable multi-view driving world models"]
+    step1 --> step2 --> step3 --> step4
+```
 
 ### Reading Order
 
@@ -620,13 +666,15 @@ This section focuses on failure awareness and safety for autonomous driving and 
 
 ### Field Evolution
 
-| **Papers / Readings** | **Shift** |
-|---|---|
-| Deep Ensembles → Bayesian Uncertainty | <kbd>single-model confidence</kbd> → <kbd>epistemic and aleatoric uncertainty for prediction</kbd> |
-| Bayesian Uncertainty → Calibration | <kbd>uncertainty estimates</kbd> → <kbd>reliable confidence for safety-critical decisions</kbd> |
-| Calibration → OOD Detection for Automotive Perception | <kbd>in-distribution confidence</kbd> → <kbd>detecting unfamiliar inputs and failure modes</kbd> |
-| OOD Detection → Tent | <kbd>failure detection under distribution shift</kbd> → <kbd>test-time adaptation under deployment shift</kbd> |
-| Tent → Control Barrier Function QPs | <kbd>robust perception under shift</kbd> → <kbd>control-level safety constraints and safe fallback behavior</kbd> |
+```mermaid
+flowchart TD
+    step1["Deep Ensembles → Bayesian Uncertainty<br/>single-model confidence → epistemic and aleatoric uncertainty for prediction"]
+    step2["Bayesian Uncertainty → Calibration<br/>uncertainty estimates → reliable confidence for safety-critical decisions"]
+    step3["Calibration → OOD Detection for Automotive Perception<br/>in-distribution confidence → detecting unfamiliar inputs and failure modes"]
+    step4["OOD Detection → Tent<br/>failure detection under distribution shift → test-time adaptation under deployment shift"]
+    step5["Tent → Control Barrier Function QPs<br/>robust perception under shift → control-level safety constraints and safe fallback behavior"]
+    step1 --> step2 --> step3 --> step4 --> step5
+```
 
 ### Reading Order
 
